@@ -31,7 +31,7 @@
                 <h1 class="text-3xl font-extrabold text-indigo-600 tracking-tight">AI Coding Tools Comparison</h1>
             </div>
             <p class="text-slate-600 text-lg">
-                Compare AI Coding Tools by independence level, workflow fit, and capabilities.
+                Compare AI Coding Tools by AI Independence Levels, workflow fit, and capabilities.
             </p>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
@@ -63,11 +63,11 @@
                         </div>
                     </div>
 
-                    <!-- AI Independence: Ceiling vs. Floor -->
+                    <!-- AI Independence Levels: Ceiling vs. Floor -->
                     <div class="p-5 bg-white border border-slate-200 rounded-xl text-sm text-slate-900 shadow-sm">
                         <div class="flex items-center gap-2 font-bold text-slate-800 text-base mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
-                            <span>AI Independence: Ceiling vs. Floor</span>
+                            <span>AI Independence Levels: Ceiling vs. Floor</span>
                         </div>
 
                         <!-- Text Descriptions -->
@@ -161,7 +161,7 @@
                 type="text" 
                 id="searchInput" 
                 onkeyup="filterTable()"
-                placeholder="Filter table by independence level, persona, tool name, or model..." 
+                placeholder="Filter table by AI Independence Levels, persona, tool name, or model..." 
                 class="w-full p-4 pl-12 bg-white border border-slate-300 rounded-xl shadow-sm focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none transition-all text-slate-800 placeholder-slate-400"
             />
         </div>
@@ -178,7 +178,7 @@
                             </th>
                             <!-- 1: AI Level -->
                             <th onclick="sortTable('agentic')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group">
-                                <div class="flex items-center gap-1">AI Independence Level <span id="sort-agentic" class="sort-icon opacity-30">↕</span></div>
+                                <div class="flex items-center gap-1">AI Independence Levels <span id="sort-agentic" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 2: Target Audience -->
                             <th onclick="sortTable('level')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group relative">
@@ -1085,7 +1085,7 @@
             }
             
             function multiLevelSort(a, b) {
-                // 1. AI Independence Level (desc)
+                // 1. AI Independence Levels (desc)
                 const agenticA = parseInt(a.agentic.split('.')[0]);
                 const agenticB = parseInt(b.agentic.split('.')[0]);
                 if (agenticA !== agenticB) return agenticB - agenticA;

@@ -21,7 +21,7 @@
         #benchmarkModal:not(.hidden), #licenseModal:not(.hidden) { opacity: 1; pointer-events: auto; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen p-4 md:p-8">
+<body class="bg-slate-50 text-slate-900 min-h-screen p-4 md:p-8 pb-32">
 
     <div class="max-w-7xl mx-auto space-y-6">
         
@@ -509,18 +509,19 @@
 
     </div>
     
-    <footer class="py-6 mt-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 px-4 gap-4">
-            <p>Data updated: Jan 2026.</p>
-            
-            <div class="text-slate-500 opacity-80 italic text-center">
-                To see updates: <b class="font-bold text-slate-700">Shift+Cmd+R</b> (Mac) or <b class="font-bold text-slate-700">Ctrl+F5</b> (Windows) for a hard reload.
-            </div>
+    <footer class="fixed bottom-0 left-0 w-full bg-slate-50 border-t border-slate-200 px-6 py-3 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 z-50 shadow-lg print:hidden">
+        <div class="font-medium">
+            Data updated: Jan 2026.
+        </div>
+        
+        <div class="italic text-center md:absolute md:left-1/2 md:-translate-x-1/2 my-2 md:my-0">
+            To see updates: <b class="font-bold text-slate-700">Shift+Cmd+R</b> (Mac) or <b class="font-bold text-slate-700">Ctrl+F5</b> (Windows) for a hard reload.
+        </div>
 
-            <div class="flex items-center gap-4">
-                <a href="https://github.com/lloydchang/ai-coding-tools-comparison" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 hover:underline transition-colors">View on GitHub</a>
-                <a href="#" id="licenseLink" class="hover:text-indigo-600 hover:underline transition-colors cursor-pointer">AGPL-3.0 license</a>
-            </div>
+        <div class="flex items-center gap-4">
+            <a href="https://github.com/lloydchang/ai-coding-tools-comparison" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 hover:underline transition-colors font-medium">View on GitHub</a>
+            <span class="text-slate-300">|</span>
+            <a href="#" id="licenseLink" class="hover:text-indigo-600 hover:underline transition-colors cursor-pointer font-medium">AGPL-3.0 license</a>
         </div>
     </footer>
 

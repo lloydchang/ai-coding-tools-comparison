@@ -404,7 +404,7 @@
                     <p class="text-sm text-indigo-700"><strong>Applies to:</strong> Windsurf, Claude (via Antigravity IDE integration)</p>
                     <p class="text-sm text-slate-600 flex-grow">This AI functions as a true "Executor" deeply integrated into the development environment. It can be commanded with natural language to perform the entire git commit workflow.</p>
                     <div class="bg-indigo-100/50 border border-indigo-200/50 rounded-lg p-3 text-xs text-indigo-800 space-y-2">
-                        <p class="font-bold">Log Analysis:</p>
+                        <p class="font-bold">Chat Log Analysis:</p>
                         <p>When prompted, it understands the <code class="text-xs bg-slate-200 px-1 rounded">git commit</code> workflow. If it lacks context (e.g., no active workspace), it uses conversation history to infer the project and asks clarifying questions to locate the repository.</p>
                     </div>
                     <div class="bg-slate-800 text-slate-200 rounded-lg p-3 font-mono text-xs mt-auto">
@@ -426,7 +426,7 @@
                     <p class="text-sm text-amber-700"><strong>Applies to:</strong> ChatGPT (by default), Claude (on claude.ai)</p>
                     <p class="text-sm text-slate-600 flex-grow">This AI acts as a powerful text generator that lacks direct access to your terminal. It can reason about code but cannot execute commands unless a specific tool or plugin grants it that capability.</p>
                     <div class="bg-amber-100/50 border border-amber-200/50 rounded-lg p-3 text-xs text-amber-800 space-y-2">
-                        <p class="font-bold">Log Analysis:</p>
+                        <p class="font-bold">Chat Log Analysis:</p>
                         <p>Transparently states its limitations (no terminal access). It understands the goal and provides step-by-step instructions for the user to provide the necessary context (<code class="text-xs bg-slate-200 px-1 rounded">git diff</code>) to assist with generating the commit message.</p>
                     </div>
                     <div class="bg-slate-800 text-slate-200 rounded-lg p-3 font-mono text-xs mt-auto">
@@ -449,7 +449,7 @@
                     <p class="text-sm text-teal-700"><strong>Applies to:</strong> AI Studio (Web IDE)</p>
                     <p class="text-sm text-slate-600 flex-grow">This AI misinterprets meta-commands like <code class="text-xs bg-slate-200 px-1 rounded">commit</code> or <code class="text-xs bg-slate-200 px-1 rounded">git commit</code> as a creative prompt to continue development. Instead of performing a git action, it "commits" to building new features for the user.</p>
                      <div class="bg-teal-100/50 border border-teal-200/50 rounded-lg p-3 text-xs text-teal-800 space-y-2">
-                        <p class="font-bold">Log Analysis:</p>
+                        <p class="font-bold">Chat Log Analysis:</p>
                         <p>Takes a literalist approach by ignoring the <code class="text-xs bg-slate-200 px-1 rounded">git</code> context and focusing only on the word "commit." It misinterprets this not as a version control command, but as a creative prompt to "commit" to improving the application. It then proceeds to design and implement new features, acting as a development partner.</p>
                     </div>
                     <div class="bg-slate-800 text-slate-200 rounded-lg p-3 font-mono text-xs mt-auto">

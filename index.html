@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +20,6 @@
         #benchmarkModal.hidden, #licenseModal.hidden { opacity: 0; pointer-events: none; }
         #benchmarkModal:not(.hidden), #licenseModal:not(.hidden) { opacity: 1; pointer-events: auto; }
     </style>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen p-4 md:p-8">
 
@@ -344,7 +342,7 @@
                         <tr class="hover:bg-slate-50/50 transition-colors">
                             <td class="p-4 font-semibold text-slate-900 bg-slate-50/30 align-top">Primary Philosophy</td>
                             <td class="p-4 align-top"><strong>Step-by-Step Partner:</strong> Developers orchestrate agents to execute specific tasks with maximum control. No background file watcher daemons.</td>
-                            <td class="p-4 align-top"><strong>Autonomous Flow:</strong> Its Cascade agent works continuously in the background, proactively suggesting and performing complex multi-file edits based on observed workflow.</td>
+                            <td class="p-4 align-top"><strong>Agentic IDE (Background Guardian):</strong> Its <strong>Cascade</strong> agent uses a specialized planning agent to continuously refine plans in the background, maintaining real-time awareness of user actions.</td>
                             <td class="p-4 align-top"><strong>AI-assisted coding:</strong> Focuses on speed, tab completion, and quick, user-directed code generation within a familiar editor interface.</td>
                         </tr>
                         <tr class="hover:bg-slate-50/50 transition-colors">
@@ -356,7 +354,7 @@
                         <tr class="hover:bg-slate-50/50 transition-colors">
                             <td class="p-4 font-semibold text-slate-900 bg-slate-50/30 align-top">Key Differentiator</td>
                             <td class="p-4 align-top">Manager View, parallel agent execution, and strict "human-in-the-loop" commit execution.</td>
-                            <td class="p-4 align-top">Persistent memory via the Cascade agent that recalls past work, and smart suggestions integrated into the workflow.</td>
+                            <td class="p-4 align-top"><strong>Deep Contextual Awareness & Flow:</strong> "The first agentic IDE." Eliminates context switching by tracking all terminal commands and file edits in real-time.</td>
                             <td class="p-4 align-top">Speed and precision for linear prompting and fast iteration; deep codebase indexing for context-aware suggestions.</td>
                         </tr>
                             <tr class="hover:bg-slate-50/50 transition-colors">
@@ -390,7 +388,7 @@
             </div>
         </div>
 
-        <!-- AI Deep Dive: Git Commit Message Generation -->
+        <!-- AI Deep Dive: Git Commit Capabilities -->
         <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8 space-y-6">
             <div>
                 <h2 class="text-2xl font-extrabold text-indigo-600 tracking-tight">AI Deep Dive: Git Commit Capabilities</h2>
@@ -404,10 +402,12 @@
                 <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 space-y-4 flex flex-col">
                     <h3 class="text-lg font-bold text-purple-800">Approach A: The Background Guardian (Autonomous Watcher)</h3>
                     <p class="text-sm text-purple-700"><strong>Applies to:</strong> Windsurf (Cascade), Cursor (Agent Mode)</p>
-                    <p class="text-sm text-slate-600 flex-grow">This AI runs an always-on background daemon that watches file changes, indexes context, and manages state. It can proactively analyze changes and suggest commits without explicit step-by-step prompting.</p>
+                    <p class="text-sm text-slate-600 flex-grow">
+                        This AI (Cascade) functions as a "Background Guardian" within the <strong>First Agentic IDE</strong>. It maintains deep codebase understanding and real-time awareness of user actions. A specialized planning agent continuously refines long-term plans in the background, allowing it to proactively suggest improvements and manage state without constant prompting.
+                    </p>
                     <div class="bg-purple-100/50 border border-purple-200/50 rounded-lg p-3 text-xs text-purple-800 space-y-2">
                         <p class="font-bold">System Behavior:</p>
-                        <p>Indexes and watches over how and which files are made in the IDE. It can make git commit and git pushes accordingly based on that command, leveraging its persistent background awareness.</p>
+                        <p>Leverages "Real-time Awareness" to eliminate the need for prompts with prior context. The Cascade agent tracks all file changes and terminal history instantly to function as a collaborative partner.</p>
                     </div>
                     <div class="bg-slate-800 text-slate-200 rounded-lg p-3 font-mono text-xs mt-auto">
                         <span class="text-green-400 mr-2">$</span>(System auto-detected changes)
@@ -417,10 +417,10 @@
                     <div>
                         <h4 class="font-semibold text-slate-700 mb-2 text-sm">✅ Key Characteristics:</h4>
                         <ul class="list-disc list-inside space-y-1 text-sm text-slate-600">
-                            <li>Runs active background file watchers.</li>
+                            <li>Runs "Background Guardian" via Cascade agent.</li>
+                            <li>Specialized planning agent refines tasks continually.</li>
                             <li>Proactively manages state and context.</li>
-                            <li>Can automate commits on intervals/triggers.</li>
-                            <li>High autonomy, less manual oversight.</li>
+                            <li>High autonomy: "Where work flows together."</li>
                         </ul>
                     </div>
                 </div>
@@ -1122,6 +1122,5 @@
             renderTable();
         });
     </script>
-<script type="module" src="/index.tsx"></script>
 </body>
 </html>

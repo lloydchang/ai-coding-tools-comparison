@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,9 +17,9 @@
         .ai-sparkle { background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%); }
         
         /* Modal Transitions */
-        #benchmarkModal { transition: opacity 0.2s ease-in-out; }
-        #benchmarkModal.hidden { opacity: 0; pointer-events: none; }
-        #benchmarkModal:not(.hidden) { opacity: 1; pointer-events: auto; }
+        #benchmarkModal, #licenseModal { transition: opacity 0.2s ease-in-out; }
+        #benchmarkModal.hidden, #licenseModal.hidden { opacity: 0; pointer-events: none; }
+        #benchmarkModal:not(.hidden), #licenseModal:not(.hidden) { opacity: 1; pointer-events: auto; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen p-4 md:p-8">
@@ -130,22 +131,22 @@
                         <!-- D. Solo Founder (Indigo) -->
                         <div class="relative pl-3 border-l-2 border-indigo-600">
                             <span class="font-bold text-indigo-800">D. Solo Founder</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>4. Agency</strong>. Requires high technical skill to define architecture and task boundaries, delegating full implementation to the AI (The "Manager").</p>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>Agency</strong>. Requires high technical skill to define architecture and task boundaries, delegating full implementation to the AI (The "Manager").</p>
                         </div>
                         <!-- C. Core Developer (Blue) -->
                         <div class="relative pl-3 border-l-2 border-blue-400">
                             <span class="font-bold text-blue-700">C. Core Developer</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>2. Augmentation</strong>. Wants "Control" over logic and syntax. Uses AI for search and refactoring but writes the critical path personally.</p>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>Augmentation</strong>. Wants "Control" over logic and syntax. Uses AI for search and refactoring but writes the critical path personally.</p>
                         </div>
                         <!-- B. Product Engineer (Purple) -->
                         <div class="relative pl-3 border-l-2 border-purple-500">
                             <span class="font-bold text-purple-700">B. Product Engineer</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>3. Autonomy</strong>. Wants "Flow" with integrated tools (Puppeteer/Browser) to visualize and iterate on features quickly.</p>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>Autonomy</strong>. Wants "Flow" with integrated tools (Puppeteer/Browser) to visualize and iterate on features quickly.</p>
                         </div>
                         <!-- A. Technical PM (Slate) -->
                         <div class="relative pl-3 border-l-2 border-slate-400">
                             <span class="font-bold text-slate-700">A. Technical Product Manager</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>1. Assistance</strong>. Wants "Understanding". Uses AI to explain code, generate prototypes, and unblock basic technical hurdles.</p>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>Assistance</strong>. Wants "Understanding". Uses AI to explain code, generate prototypes, and unblock basic technical hurdles.</p>
                         </div>
                     </div>
                 </div>
@@ -218,11 +219,6 @@
                         <!-- Content will be rendered by JS -->
                     </tbody>
                 </table>
-            </div>
-            <div class="bg-slate-50 px-6 py-4 border-t border-slate-200 text-center">
-                <p class="text-xs text-slate-400">
-                   Data updated: Dec 2025.
-                </p>
             </div>
         </div>
 
@@ -404,9 +400,9 @@
 
             <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
                 <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-6 space-y-4 flex flex-col">
-                    <h3 class="text-lg font-bold text-indigo-800">Model A: The Integrated Agent (Executor)</h3>
+                    <h3 class="text-lg font-bold text-indigo-800">Approach A: The Integrated Agent (Executor)</h3>
                     <p class="text-sm text-indigo-700"><strong>Applies to:</strong> Windsurf, Claude (via Antigravity IDE integration)</p>
-                    <p class="text-sm text-slate-600 flex-grow">This model functions as a true "Executor" deeply integrated into the development environment. It can be commanded with natural language to perform the entire git commit workflow.</p>
+                    <p class="text-sm text-slate-600 flex-grow">This AI functions as a true "Executor" deeply integrated into the development environment. It can be commanded with natural language to perform the entire git commit workflow.</p>
                     <div class="bg-indigo-100/50 border border-indigo-200/50 rounded-lg p-3 text-xs text-indigo-800 space-y-2">
                         <p class="font-bold">Log Analysis:</p>
                         <p>When prompted, it understands the <code class="text-xs bg-slate-200 px-1 rounded">git commit</code> workflow. If it lacks context (e.g., no active workspace), it uses conversation history to infer the project and asks clarifying questions to locate the repository.</p>
@@ -426,9 +422,9 @@
                 </div>
 
                 <div class="bg-amber-50 border border-amber-200 rounded-lg p-6 space-y-4 flex flex-col">
-                    <h3 class="text-lg font-bold text-amber-800">Model B: The Reasoning Engine (Tool-Reliant)</h3>
+                    <h3 class="text-lg font-bold text-amber-800">Approach B: The Reasoning Engine (Tool-Reliant)</h3>
                     <p class="text-sm text-amber-700"><strong>Applies to:</strong> ChatGPT (by default), Claude (on claude.ai)</p>
-                    <p class="text-sm text-slate-600 flex-grow">This model acts as a powerful text generator that lacks direct access to your terminal. It can reason about code but cannot execute commands unless a specific tool or plugin grants it that capability.</p>
+                    <p class="text-sm text-slate-600 flex-grow">This AI acts as a powerful text generator that lacks direct access to your terminal. It can reason about code but cannot execute commands unless a specific tool or plugin grants it that capability.</p>
                     <div class="bg-amber-100/50 border border-amber-200/50 rounded-lg p-3 text-xs text-amber-800 space-y-2">
                         <p class="font-bold">Log Analysis:</p>
                         <p>Transparently states its limitations (no terminal access). It understands the goal and provides step-by-step instructions for the user to provide the necessary context (<code class="text-xs bg-slate-200 px-1 rounded">git diff</code>) to assist with generating the commit message.</p>
@@ -449,12 +445,12 @@
                 </div>
                 
                 <div class="bg-teal-50 border border-teal-200 rounded-lg p-6 space-y-4 flex flex-col">
-                    <h3 class="text-lg font-bold text-teal-800">Model C: The Proactive Developer</h3>
+                    <h3 class="text-lg font-bold text-teal-800">Approach C: The Creative Interpreter (Literalist)</h3>
                     <p class="text-sm text-teal-700"><strong>Applies to:</strong> AI Studio (Web IDE)</p>
-                    <p class="text-sm text-slate-600 flex-grow">This model misinterprets meta-commands like <code class="text-xs bg-slate-200 px-1 rounded">commit</code> or <code class="text-xs bg-slate-200 px-1 rounded">git commit</code> as a creative prompt to continue development. Instead of performing a git action, it "commits" to building new features for the user.</p>
+                    <p class="text-sm text-slate-600 flex-grow">This AI misinterprets meta-commands like <code class="text-xs bg-slate-200 px-1 rounded">commit</code> or <code class="text-xs bg-slate-200 px-1 rounded">git commit</code> as a creative prompt to continue development. Instead of performing a git action, it "commits" to building new features for the user.</p>
                      <div class="bg-teal-100/50 border border-teal-200/50 rounded-lg p-3 text-xs text-teal-800 space-y-2">
                         <p class="font-bold">Log Analysis:</p>
-                        <p>Interprets prompts like <code class="text-xs bg-slate-200 px-1 rounded">commit my changes</code> or <code class="text-xs bg-slate-200 px-1 rounded">git commit</code> not as version control commands, but as creative requests to "commit" to improving the application. It then proceeds to design and implement new features, acting as a development partner.</p>
+                        <p>Takes a literalist approach by ignoring the <code class="text-xs bg-slate-200 px-1 rounded">git</code> context and focusing only on the word "commit." It misinterprets this not as a version control command, but as a creative prompt to "commit" to improving the application. It then proceeds to design and implement new features, acting as a development partner.</p>
                     </div>
                     <div class="bg-slate-800 text-slate-200 rounded-lg p-3 font-mono text-xs mt-auto">
                         <span class="text-green-400 mr-2">$</span>Please analyze and git commit my changes.
@@ -477,14 +473,39 @@
                     Important Distinction: Environment Matters
                 </h3>
                 <p class="text-blue-700 mt-2 text-sm">
-                    An AI's capabilities depend heavily on its environment. For example, <span class="font-semibold">Claude Sonnet</span> acts as a fully integrated <span class="font-semibold">Executor</span> inside an IDE, but functions as a <span class="font-semibold">Reasoning Engine</span> on its public website (<span class="font-mono text-xs bg-blue-100 px-1 py-0.5 rounded">claude.ai</span>). Always confirm whether you're interacting with an integrated agent or a standalone chat interface.
+                    An AI's capabilities depend heavily on its environment. For example, <span class="font-semibold">Claude Opus</span> acts as a fully integrated <span class="font-semibold">Executor</span> inside an IDE, but functions as a <span class="font-semibold">Reasoning Engine</span> on its public website (<span class="font-mono text-xs bg-blue-100 px-1 py-0.5 rounded">claude.ai</span>). Always confirm whether you're interacting with an integrated agent or a standalone chat interface.
                 </p>
             </div>
         </div>
 
     </div>
     
-    <!-- Benchmark Chart Modal (Restored) -->
+    <footer class="text-center py-6 mt-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-xs text-slate-400 px-4">
+            <p>Data updated: Jan 2026.</p>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/lloydchang/ai-coding-tools-comparison" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 hover:underline transition-colors">View on GitHub</a>
+                <a href="#" id="licenseLink" class="hover:text-indigo-600 hover:underline transition-colors cursor-pointer">License</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- License Modal -->
+    <div id="licenseModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl max-h-[80vh] flex flex-col">
+            <div class="p-4 border-b border-slate-200 flex justify-between items-center">
+                <h2 class="text-lg font-bold text-slate-800">License</h2>
+                <button id="closeLicenseModal" class="text-slate-400 hover:text-slate-600 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto">
+                <pre id="licenseText" class="text-sm text-slate-600 whitespace-pre-wrap font-mono"></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benchmark Chart Modal -->
     <div id="benchmarkModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <!-- Modal Backdrop -->
         <div class="absolute inset-0" onclick="closeModal()"></div>
@@ -590,7 +611,7 @@
                 llm: "Claude Opus 4.5, Gemini 3 Pro, GPT-5.2-Codex",
                 pricing: "$10/mo to Usage Based",
                 indemnity: "Yes",
-                notes: "Tactical autocomplete & boilerplate reduction. A 'fancy spellcheck' mental model, where the user is still the primary driver."
+                notes: "Advanced code generation and refactoring. Can autonomously handle small to medium tasks like implementing functions or fixing bugs based on user prompts."
             },
             {
                 name: "Cursor",
@@ -795,7 +816,7 @@
         
         const searchBtn = document.getElementById('searchGoogleBtn');
         const searchInput = document.getElementById('researchPrompt');
-        const DEFAULT_QUERY = "Antigravity vs Windsurf vs Cursor | Browser and Git features | 2026 | Today";
+        const DEFAULT_QUERY = "Antigravity vs Windsurf vs Cursor | Browser and Git Features | 2026 | Today";
 
         function performGoogleSearch() {
             let query = searchInput.value.trim();
@@ -887,13 +908,9 @@
             }, 300); // Match duration-300
         };
 
-        // Close on clicking outside
-        // Note: The backdrop div handles the click event directly via onclick="closeModal()"
-
         function initChart() {
             const ctx = document.getElementById('sweBenchChart').getContext('2d');
             
-            // Format labels to be shorter or multiline if needed, for now using names directly
             const labels = benchmarkData.map(d => d.name);
             const dataValues = benchmarkData.map(d => d.resolved);
 
@@ -975,8 +992,63 @@
             });
         }
 
-        // Initial Render of Main Table
+        // Initial Render
         document.addEventListener('DOMContentLoaded', () => {
+
+            // ==========================================
+            // LICENSE MODAL LOGIC
+            // ==========================================
+            const licenseLink = document.getElementById('licenseLink');
+            const licenseModal = document.getElementById('licenseModal');
+            const closeLicenseModalBtn = document.getElementById('closeLicenseModal');
+            const licenseTextEl = document.getElementById('licenseText');
+            
+            if (licenseLink && licenseModal && closeLicenseModalBtn && licenseTextEl) {
+                let licenseContent = null;
+                const licenseUrl = 'https://raw.githubusercontent.com/lloydchang/ai-coding-tools-comparison/main/LICENSE';
+
+                const openLicenseModal = async () => {
+                    if (!licenseContent) {
+                        try {
+                            licenseTextEl.textContent = 'Loading...';
+                            const response = await fetch(licenseUrl);
+                            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                            licenseContent = await response.text();
+                            licenseTextEl.textContent = licenseContent;
+                        } catch (error) {
+                            console.error('Failed to fetch license:', error);
+                            licenseTextEl.textContent = 'Failed to load license content. Please try again later.';
+                            licenseContent = null; // Allow refetching
+                        }
+                    }
+                    licenseModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                };
+
+                const closeLicenseModal = () => {
+                    licenseModal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                };
+
+                licenseLink.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    openLicenseModal();
+                });
+
+                closeLicenseModalBtn.addEventListener('click', closeLicenseModal);
+
+                licenseModal.addEventListener('click', (event) => {
+                    if (event.target === licenseModal) {
+                        closeLicenseModal();
+                    }
+                });
+
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && !licenseModal.classList.contains('hidden')) {
+                        closeLicenseModal();
+                    }
+                });
+            }
             
             function multiLevelSort(a, b) {
                 // 1. AI Independence Level (desc)
@@ -985,9 +1057,9 @@
                 if (agenticA !== agenticB) return agenticB - agenticA;
 
                 // 2. Target User (desc)
-                const levelA = parseInt(a.level.split('.')[0]);
-                const levelB = parseInt(b.level.split('.')[0]);
-                if (levelA !== levelB) return levelB - levelA;
+                const levelA = a.level.split('.')[0];
+                const levelB = b.level.split('.')[0];
+                if (levelA !== levelB) return levelB.localeCompare(levelA);
 
                 // 3. Workflow Fit (asc)
                 const workflowCompare = a.workflow.localeCompare(b.workflow);

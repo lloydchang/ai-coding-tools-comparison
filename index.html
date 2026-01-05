@@ -184,9 +184,9 @@
                             <th onclick="sortTable('level')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group relative">
                                 <div class="flex items-center gap-1">Target User <span id="sort-level" class="sort-icon opacity-30">↕</span></div>
                             </th>
-                            <!-- 3: Workflow Fit -->
+                            <!-- 3: Workflow Fits -->
                             <th onclick="sortTable('workflow')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group">
-                                <div class="flex items-center gap-1">Workflow Fit <span id="sort-workflow" class="sort-icon opacity-30">↕</span></div>
+                                <div class="flex items-center gap-1">Workflow Fits <span id="sort-workflow" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 4: Agentic Git -->
                             <th onclick="sortTable('git')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group">
@@ -1095,7 +1095,7 @@
                 const levelB = b.level.split('.')[0];
                 if (levelA !== levelB) return levelB.localeCompare(levelA);
 
-                // 3. Workflow Fit (asc)
+                // 3. Workflow Fits (asc)
                 const workflowCompare = a.workflow.localeCompare(b.workflow);
                 if (workflowCompare !== 0) return workflowCompare;
 

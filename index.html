@@ -21,6 +21,7 @@
         #benchmarkModal.hidden, #licenseModal.hidden { opacity: 0; pointer-events: none; }
         #benchmarkModal:not(.hidden), #licenseModal:not(.hidden) { opacity: 1; pointer-events: auto; }
     </style>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen p-4 md:p-8">
 
@@ -251,7 +252,7 @@
                     <div class="text-3xl font-extrabold text-slate-800">74.4%</div>
                     <div class="text-xs text-slate-400 mt-1 flex items-center gap-1">
                         SWE-Bench Verified
-                        <svg class="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 00-2-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <svg class="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </div>
                 </a>
 
@@ -334,7 +335,7 @@
                     <thead class="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200">
                         <tr>
                             <th class="p-4 w-32 bg-slate-100/50">Feature</th>
-                            <th class="p-4 w-1/4 text-slate-800 font-bold bg-white">Antigravity</th>
+                            <th class="p-4 w-1/4 text-slate-800 font-bold bg-white">Antigravity IDE</th>
                             <th class="p-4 w-1/4 text-slate-800 font-bold bg-white">Windsurf</th>
                             <th class="p-4 w-1/4 text-slate-800 font-bold bg-white">Cursor</th>
                         </tr>
@@ -342,19 +343,19 @@
                     <tbody class="divide-y divide-slate-100 text-slate-700 bg-white">
                         <tr class="hover:bg-slate-50/50 transition-colors">
                             <td class="p-4 font-semibold text-slate-900 bg-slate-50/30 align-top">Primary Philosophy</td>
-                            <td class="p-4 align-top"><strong>Agent-first:</strong> Developers orchestrate multiple AI agents to manage entire tasks and projects autonomously.</td>
-                            <td class="p-4 align-top"><strong>Autonomous Flow:</strong> Its Cascade agent works alongside the developer, proactively suggesting and performing complex multi-file edits based on observed workflow.</td>
+                            <td class="p-4 align-top"><strong>Step-by-Step Partner:</strong> Developers orchestrate agents to execute specific tasks with maximum control. No background file watcher daemons.</td>
+                            <td class="p-4 align-top"><strong>Autonomous Flow:</strong> Its Cascade agent works continuously in the background, proactively suggesting and performing complex multi-file edits based on observed workflow.</td>
                             <td class="p-4 align-top"><strong>AI-assisted coding:</strong> Focuses on speed, tab completion, and quick, user-directed code generation within a familiar editor interface.</td>
                         </tr>
                         <tr class="hover:bg-slate-50/50 transition-colors">
                             <td class="p-4 font-semibold text-slate-900 bg-slate-50/30 align-top">Best For</td>
-                            <td class="p-4 align-top">Enterprises, large-scale systems, and prototyping new applications with high autonomy.</td>
+                            <td class="p-4 align-top">Enterprises, large-scale systems, and developers requiring explicit state management and control.</td>
                             <td class="p-4 align-top">Autonomous, complex development, team integration, and production stability.</td>
                             <td class="p-4 align-top">Fast, everyday coding, quick bug fixes, and developers who prefer more manual control.</td>
                         </tr>
                         <tr class="hover:bg-slate-50/50 transition-colors">
                             <td class="p-4 font-semibold text-slate-900 bg-slate-50/30 align-top">Key Differentiator</td>
-                            <td class="p-4 align-top">Manager View and parallel agent execution for simultaneous tasks. Features "browser-in-the-loop" testing.</td>
+                            <td class="p-4 align-top">Manager View, parallel agent execution, and strict "human-in-the-loop" commit execution.</td>
                             <td class="p-4 align-top">Persistent memory via the Cascade agent that recalls past work, and smart suggestions integrated into the workflow.</td>
                             <td class="p-4 align-top">Speed and precision for linear prompting and fast iteration; deep codebase indexing for context-aware suggestions.</td>
                         </tr>
@@ -380,11 +381,11 @@
                 <h3 class="text-lg font-bold text-slate-800 mb-4">Git Features in 2026</h3>
                 <p class="text-sm text-slate-600 mb-4">These platforms generally support standard Git and version control workflows. Key integrations and features within these AI IDEs in 2026 include:</p>
                 <ul class="space-y-3 text-sm text-slate-700">
+                    <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Execution Style:</strong> Tools divide into "Background Watchers" (Windsurf) that auto-index/commit, and "Step-by-Step Partners" (Antigravity IDE) that execute only on command.</span></li>
                     <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Automatic Code Review:</strong> Agents can perform automatic code reviews as part of team collaboration features.</span></li>
                     <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Seamless Integrations:</strong> Tools like Windsurf and Cursor integrate with platforms such as GitHub and Slack.</span></li>
                     <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Agent Interaction:</strong> Agents can be given natural language instructions (e.g., "fix all bugs in this module") and interact with terminal/Git tools.</span></li>
                     <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Contextual Understanding:</strong> Agents understand entire codebase including Git history and branches to make informed decisions.</span></li>
-                    <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Git Worktrees:</strong> While Cursor supports Git Worktrees for switching branches, Antigravity currently lacks this functionality.</span></li>
                 </ul>
             </div>
         </div>
@@ -398,32 +399,61 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
-                <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-6 space-y-4 flex flex-col">
-                    <h3 class="text-lg font-bold text-indigo-800">Approach A: The Integrated Agent (Executor)</h3>
-                    <p class="text-sm text-indigo-700"><strong>Applies to:</strong> Windsurf, Claude (via Antigravity IDE integration)</p>
-                    <p class="text-sm text-slate-600 flex-grow">This AI functions as a true "Executor" deeply integrated into the development environment. It can be commanded with natural language to perform the entire git commit workflow.</p>
-                    <div class="bg-indigo-100/50 border border-indigo-200/50 rounded-lg p-3 text-xs text-indigo-800 space-y-2">
-                        <p class="font-bold">Chat Log Analysis:</p>
-                        <p>When prompted, it understands the <code class="text-xs bg-slate-200 px-1 rounded">git commit</code> workflow. If it lacks context (e.g., no active workspace), it uses conversation history to infer the project and asks clarifying questions to locate the repository.</p>
+            <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Approach A: Background Guardian -->
+                <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 space-y-4 flex flex-col">
+                    <h3 class="text-lg font-bold text-purple-800">Approach A: The Background Guardian (Autonomous Watcher)</h3>
+                    <p class="text-sm text-purple-700"><strong>Applies to:</strong> Windsurf (Cascade), Cursor (Agent Mode)</p>
+                    <p class="text-sm text-slate-600 flex-grow">This AI runs an always-on background daemon that watches file changes, indexes context, and manages state. It can proactively analyze changes and suggest commits without explicit step-by-step prompting.</p>
+                    <div class="bg-purple-100/50 border border-purple-200/50 rounded-lg p-3 text-xs text-purple-800 space-y-2">
+                        <p class="font-bold">System Behavior:</p>
+                        <p>Indexes and watches over how and which files are made in the IDE. It can make git commit and git pushes accordingly based on that command, leveraging its persistent background awareness.</p>
                     </div>
                     <div class="bg-slate-800 text-slate-200 rounded-lg p-3 font-mono text-xs mt-auto">
-                        <span class="text-green-400 mr-2">$</span>Please analyze and commit my changes.
+                        <span class="text-green-400 mr-2">$</span>(System auto-detected changes)
+                        <br/>
+                        <span class="text-slate-400">> Suggesting commit: "fix: update architecture diagram"</span>
                     </div>
                     <div>
                         <h4 class="font-semibold text-slate-700 mb-2 text-sm">✅ Key Characteristics:</h4>
                         <ul class="list-disc list-inside space-y-1 text-sm text-slate-600">
-                            <li>Analyzes changes via <code class="text-xs bg-slate-200 px-1 rounded">git diff</code> directly.</li>
-                            <li>Generates context-aware messages.</li>
-                            <li>Executes <code class="text-xs bg-slate-200 px-1 rounded">git commit</code> commands.</li>
-                            <li>No external scripts or APIs needed.</li>
+                            <li>Runs active background file watchers.</li>
+                            <li>Proactively manages state and context.</li>
+                            <li>Can automate commits on intervals/triggers.</li>
+                            <li>High autonomy, less manual oversight.</li>
                         </ul>
                     </div>
                 </div>
 
+                <!-- Approach B: Step-by-Step Partner -->
+                <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-6 space-y-4 flex flex-col">
+                    <h3 class="text-lg font-bold text-indigo-800">Approach B: The Step-by-Step Partner (Interactive Executor)</h3>
+                    <p class="text-sm text-indigo-700"><strong>Applies to:</strong> Antigravity IDE</p>
+                    <p class="text-sm text-slate-600 flex-grow">This AI is deeply integrated but purely reactive. It acts as a partner that executes complex tasks only when commanded. It deliberately lacks a background watcher to ensure the user retains maximum control over tool usage.</p>
+                    <div class="bg-indigo-100/50 border border-indigo-200/50 rounded-lg p-3 text-xs text-indigo-800 space-y-2">
+                        <p class="font-bold">Agent Response:</p>
+                        <p>"I am designed to run as a step-by-step partner rather than a background watcher. This is a configuration choice... to give you maximum control... I don't run a background file watcher daemon in this mode."</p>
+                    </div>
+                    <div class="bg-slate-800 text-slate-200 rounded-lg p-3 font-mono text-xs mt-auto">
+                        <span class="text-green-400 mr-2">$</span>Please analyze and commit my changes.
+                        <br/>
+                        <span class="text-slate-400">> Checking git status... Committing now.</span>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-slate-700 mb-2 text-sm">✅ Key Characteristics:</h4>
+                        <ul class="list-disc list-inside space-y-1 text-sm text-slate-600">
+                            <li>No background file watcher daemon.</li>
+                            <li>Executes strictly on user prompt.</li>
+                            <li>Ensures 100% user control over actions.</li>
+                            <li>Directly executes <code>git</code> tools interactively.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Approach C: Reasoning Engine -->
                 <div class="bg-amber-50 border border-amber-200 rounded-lg p-6 space-y-4 flex flex-col">
-                    <h3 class="text-lg font-bold text-amber-800">Approach B: The Reasoning Engine (Tool-Reliant)</h3>
-                    <p class="text-sm text-amber-700"><strong>Applies to:</strong> ChatGPT (by default), Claude (on claude.ai)</p>
+                    <h3 class="text-lg font-bold text-amber-800">Approach C: The Reasoning Engine (Tool-Reliant)</h3>
+                    <p class="text-sm text-amber-700"><strong>Applies to:</strong> ChatGPT (standard), Claude.ai</p>
                     <p class="text-sm text-slate-600 flex-grow">This AI acts as a powerful text generator that lacks direct access to your terminal. It can reason about code but cannot execute commands unless a specific tool or plugin grants it that capability.</p>
                     <div class="bg-amber-100/50 border border-amber-200/50 rounded-lg p-3 text-xs text-amber-800 space-y-2">
                         <p class="font-bold">Chat Log Analysis:</p>
@@ -439,18 +469,18 @@
                             <li>Cannot run <code class="text-xs bg-slate-200 px-1 rounded">git</code> commands directly.</li>
                             <li>Relies on user to provide context (e.g., paste diffs).</li>
                             <li>Can only generate text for the user to copy.</li>
-                            <li>Action execution is an illusion without tool integration.</li>
                         </ul>
                     </div>
                 </div>
                 
+                <!-- Approach D: Creative Interpreter -->
                 <div class="bg-teal-50 border border-teal-200 rounded-lg p-6 space-y-4 flex flex-col">
-                    <h3 class="text-lg font-bold text-teal-800">Approach C: The Creative Interpreter (Literalist)</h3>
+                    <h3 class="text-lg font-bold text-teal-800">Approach D: The Creative Interpreter (Literalist)</h3>
                     <p class="text-sm text-teal-700"><strong>Applies to:</strong> AI Studio (Web IDE)</p>
                     <p class="text-sm text-slate-600 flex-grow">This AI misinterprets meta-commands like <code class="text-xs bg-slate-200 px-1 rounded">commit</code> or <code class="text-xs bg-slate-200 px-1 rounded">git commit</code> as a creative prompt to continue development. Instead of performing a git action, it "commits" to building new features for the user.</p>
                      <div class="bg-teal-100/50 border border-teal-200/50 rounded-lg p-3 text-xs text-teal-800 space-y-2">
                         <p class="font-bold">Chat Log Analysis:</p>
-                        <p>Takes a literalist approach by ignoring the <code class="text-xs bg-slate-200 px-1 rounded">git</code> context and focusing only on the word "commit." It misinterprets this not as a version control command, but as a creative prompt to "commit" to improving the application. It then proceeds to design and implement new features, acting as a development partner.</p>
+                        <p>Takes a literalist approach by ignoring the <code class="text-xs bg-slate-200 px-1 rounded">git</code> context and focusing only on the word "commit." It misinterprets this not as a version control command, but as a creative prompt to "commit" to improving the application.</p>
                     </div>
                     <div class="bg-slate-800 text-slate-200 rounded-lg p-3 font-mono text-xs mt-auto">
                         <span class="text-green-400 mr-2">$</span>Please analyze and git commit my changes.
@@ -458,10 +488,9 @@
                     <div>
                         <h4 class="font-semibold text-slate-700 mb-2 text-sm">⚠️ Key Behavior:</h4>
                         <ul class="list-disc list-inside space-y-1 text-sm text-slate-600">
-                            <li>Does not recognize <code class="text-xs bg-slate-200 px-1 rounded">commit</code> or <code class="text-xs bg-slate-200 px-1 rounded">git commit</code> as git commands.</li>
+                            <li>Does not recognize <code class="text-xs bg-slate-200 px-1 rounded">git</code> commands.</li>
                             <li>Interprets the request as a task to improve the app.</li>
-                            <li>Proposes and implements new code.</li>
-                            <li>Acts like a developer continuing their work.</li>
+                            <li>Proposes and implements new code instead of saving.</li>
                         </ul>
                     </div>
                 </div>
@@ -473,7 +502,7 @@
                     Important Distinction: Environment Matters
                 </h3>
                 <p class="text-blue-700 mt-2 text-sm">
-                    An AI's capabilities depend heavily on its environment. For example, <span class="font-semibold">Claude Opus</span> acts as a fully integrated <span class="font-semibold">Executor</span> inside an IDE, but functions as a <span class="font-semibold">Reasoning Engine</span> on its public website (<span class="font-mono text-xs bg-blue-100 px-1 py-0.5 rounded">claude.ai</span>). Always confirm whether you're interacting with an integrated agent or a standalone chat interface.
+                    An AI's capabilities depend heavily on its environment. For example, <span class="font-semibold">Claude Opus</span> acts as an integrated <span class="font-semibold">Step-by-Step Partner</span> inside an IDE, but functions as a <span class="font-semibold">Reasoning Engine</span> on its public website (<span class="font-mono text-xs bg-blue-100 px-1 py-0.5 rounded">claude.ai</span>). Always confirm whether you're interacting with an integrated agent or a standalone chat interface.
                 </p>
             </div>
         </div>
@@ -549,17 +578,17 @@
                 notes: "Agentic CLI that acts as a 'Junior Dev' in your shell. Uses a 'Deep Read' context strategy to load entire file trees, making it superior for complex logic and architectural reasoning."
             },
             {
-                name: "Antigravity",
+                name: "Antigravity IDE",
                 url: "https://antigravity.google/download",
                 level: "D. Solo Founder",
-                workflow: "Agentic IDE",
+                workflow: "Agentic IDE (Step-by-Step)",
                 agentic: "4. Agency",
                 git: "Yes",
                 browser: "Interactive",
                 llm: "Claude Opus 4.5 (Thinking)",
                 pricing: "Free / $20 / $250",
                 indemnity: "No",
-                notes: "Agent-First philosophy; orchestrates multiple asynchronous agents from a 'Mission Control' view. Best for enterprise systems and prototyping new apps."
+                notes: "Step-by-Step Partner architecture; provides maximum developer control by executing tool commands only on explicit prompts. No background watcher daemon."
             },
             {
                 name: "OpenAI Codex",
@@ -578,14 +607,14 @@
                 name: "Windsurf",
                 url: "https://windsurf.com/download",
                 level: "B. Product Engineer",
-                workflow: "Agentic IDE",
+                workflow: "Agentic IDE (Background)",
                 agentic: "3. Autonomy",
                 git: "Yes",
                 browser: "Embedded",
                 llm: "SWE-1.5, Gemini 2.5 Pro, GPT-5.2-Codex, BYOK",
                 pricing: "Free / $15 / $30",
                 indemnity: "No",
-                notes: "Autonomous Flow philosophy with a 'Hybrid Flow' context strategy. Passively observes workflow in a unified timeline to suggest real-time changes. It uses Codeium's backend AI services."
+                notes: "Autonomous Flow philosophy with a 'Hybrid Flow' context strategy. Passively observes workflow in a unified timeline to suggest real-time changes."
             },
             {
                 name: "Aider",
@@ -1093,5 +1122,6 @@
             renderTable();
         });
     </script>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>

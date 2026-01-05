@@ -119,11 +119,11 @@
                     </div>
                 </div>
                 
-                <!-- Target User Definitions -->
+                <!-- Target User Persona Definitions -->
                 <div class="p-5 bg-white border border-slate-200 rounded-xl text-sm text-slate-900 shadow-sm">
                     <div class="flex items-center gap-2 font-bold text-slate-800 text-base mb-4">
                         <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                        <span>Target User Persona Guide</span>
+                        <span>Target User Persona</span>
                     </div>
 
                     <div class="space-y-4">
@@ -161,7 +161,7 @@
                 type="text" 
                 id="searchInput" 
                 onkeyup="filterTable()"
-                placeholder="Filter table by AI Independence Levels, persona, tool name, or model..." 
+                placeholder="Filter table by AI Independence Levels, Target User Persona, Tool Name, or LLM Used..." 
                 class="w-full p-4 pl-12 bg-white border border-slate-300 rounded-xl shadow-sm focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none transition-all text-slate-800 placeholder-slate-400"
             />
         </div>
@@ -182,7 +182,7 @@
                             </th>
                             <!-- 2: Target Audience -->
                             <th onclick="sortTable('level')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group relative">
-                                <div class="flex items-center gap-1">Target User <span id="sort-level" class="sort-icon opacity-30">↕</span></div>
+                                <div class="flex items-center gap-1">Target User Persona <span id="sort-level" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 3: Workflow Fits -->
                             <th onclick="sortTable('workflow')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group">
@@ -326,7 +326,7 @@
                 AI Overview: Comparison of AI Coding Platforms (2026)
             </div>
             <p class="text-slate-800 mb-6 leading-relaxed">
-                Antigravity, Windsurf, and Cursor are all competing AI-powered Integrated Development Environments (IDEs) or coding assistants, popular in late 2025 and early 2026. They differ primarily in their approach to AI autonomy and target user workflows.
+                Antigravity, Windsurf, and Cursor are all competing AI-powered Integrated Development Environments (IDEs) or coding assistants, popular in late 2025 and early 2026. They differ primarily in their approach to AI Independence Levels and Target User Persona.
             </p>
             <div class="overflow-x-auto mb-8 border border-slate-200 rounded-lg shadow-sm">
                 <table class="w-full text-sm text-left">
@@ -1090,7 +1090,7 @@
                 const agenticB = parseInt(b.agentic.split('.')[0]);
                 if (agenticA !== agenticB) return agenticB - agenticA;
 
-                // 2. Target User (desc)
+                // 2. Target User Persona (desc)
                 const levelA = a.level.split('.')[0];
                 const levelB = b.level.split('.')[0];
                 if (levelA !== levelB) return levelB.localeCompare(levelA);

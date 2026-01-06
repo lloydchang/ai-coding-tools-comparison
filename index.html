@@ -204,22 +204,22 @@
                         <!-- D. Solo Founder (Indigo) -->
                         <div class="relative pl-3 border-l-2 border-indigo-600">
                             <span class="font-bold text-indigo-800">D. Solo Founder</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>4. Agency</strong>. Requires high technical skill to define architecture and task boundaries, delegating full implementation to the AI (The "Manager").</p>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>4. Agency</strong>. Requires high technical skill to define architecture and task boundaries, delegating full implementation to an Orchestrator Agent to coordinate multiple agents or tasks, assign work, and aggregate results. This is the most neutral and widely used in multi-agent frameworks.</p>
                         </div>
                         <!-- B. Core Developer (Blue) -->
                         <div class="relative pl-3 border-l-2 border-blue-400">
                             <span class="font-bold text-blue-700">B. Core Developer</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>2. Augmentation</strong>. Wants "Control" over logic and syntax. Uses AI for search and refactoring but writes the critical path personally.</p>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>2. Augmentation</strong>. Wants control over logic and syntax. Uses AI for search and refactoring but writes the critical path personally.</p>
                         </div>
-                        <!-- B. Product Engineer (Purple) -->
+                        <!-- C. Product Engineer (Purple) -->
                         <div class="relative pl-3 border-l-2 border-purple-500">
-                            <span class="font-bold text-purple-700">B. Product Engineer</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>3. Autonomy</strong>. Wants "Flow" with integrated tools (Puppeteer/Browser) to visualize and iterate on features quickly.</p>
+                            <span class="font-bold text-purple-700">C. Product Engineer</span>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>3. Autonomy</strong>. Wants flow with integrated tools (Puppeteer/Browser) to visualize and iterate on features quickly.</p>
                         </div>
                         <!-- A. Technical PM (Slate) -->
                         <div class="relative pl-3 border-l-2 border-slate-400">
                             <span class="font-bold text-slate-700">A. Technical Product Manager</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>1. Assistance</strong>. Wants "Understanding". Uses AI to explain code, generate prototypes, and unblock basic technical hurdles.</p>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>1. Assistance</strong>. Wants understanding. Uses AI to explain code, generate prototypes, and unblock basic technical hurdles.</p>
                         </div>
                     </div>
                 </div>
@@ -627,7 +627,7 @@
             {
                 name: "Windsurf",
                 url: "https://windsurf.com/download",
-                level: "B. Product Engineer",
+                level: "C. Product Engineer",
                 workflow: "Agentic IDE (Background Guardian)",
                 agentic: "3. Autonomy",
                 git: "Yes",
@@ -666,7 +666,7 @@
             {
                 name: "Cursor",
                 url: "https://cursor.com/download",
-                level: "B. Product Engineer",
+                level: "C. Product Engineer",
                 workflow: "Agentic IDE",
                 agentic: "3. Autonomy",
                 git: "Yes",
@@ -679,7 +679,7 @@
             {
                 name: "Roo Code",
                 url: "https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline",
-                level: "B. Product Engineer",
+                level: "C. Product Engineer",
                 workflow: "Task-focused IDE automation",
                 agentic: "3. Autonomy",
                 git: "Yes",
@@ -692,7 +692,7 @@
             {
                 name: "Cline",
                 url: "https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev",
-                level: "B. Product Engineer",
+                level: "C. Product Engineer",
                 workflow: "Task-focused IDE automation",
                 agentic: "2. Augmentation",
                 git: "Yes",
@@ -705,7 +705,7 @@
             {
                 name: "Kilo Code",
                 url: "https://marketplace.visualstudio.com/items?itemName=kilocode.Kilo-Code",
-                level: "B. Product Engineer",
+                level: "C. Product Engineer",
                 workflow: "Task-focused IDE automation",
                 agentic: "2. Augmentation",
                 git: "Yes",
@@ -768,7 +768,7 @@
                 if (v.includes('solo founder')) classes += "bg-indigo-100 text-indigo-800 border border-indigo-200";
                 // B. Core Developer (Blue)
                 else if (v.includes('core developer')) classes += "bg-blue-100 text-blue-800 border border-blue-200";
-                // B. Product Engineer (Purple)
+                // C. Product Engineer (Purple)
                 else if (v.includes('product engineer')) classes += "bg-purple-100 text-purple-800 border border-purple-200";
                 // A. Technical Product Manager (Slate)
                 else if (v.includes('technical product manager') || v.includes('product manager')) classes += "bg-slate-100 text-slate-700 border border-slate-200";

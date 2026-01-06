@@ -114,7 +114,7 @@
                     <div class="p-5 bg-white border border-slate-200 rounded-xl text-sm text-slate-900 shadow-sm">
                         <div class="flex items-center gap-2 font-bold text-slate-800 text-base mb-4">
                             <svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            <span>AI Independence Levels</span>
+                            <span>AI Independence Levels: Definitions</span>
                         </div>
 
                         <div class="space-y-4">
@@ -146,10 +146,10 @@
 
                         <!-- Text Descriptions -->
                         <div class="space-y-3 mb-6 text-xs text-slate-600">
-                            <p><strong class="font-semibold text-slate-800">Highest Ceiling and Lowest Floor:</strong> Max capability, requires skill to master.</p>
-                            <p><strong class="font-semibold text-slate-800">High Ceiling and Low Floor:</strong> Strong capability, accessible start.</p>
-                            <p><strong class="font-semibold text-slate-800">Low Ceiling and High Floor:</strong> Easy to use, limited potential.</p>
-                            <p><strong class="font-semibold text-slate-800">Lowest Ceiling and Highest Floor:</strong> Simplest start, very restricted growth.</p>
+                            <p><strong class="font-semibold text-indigo-700">Highest Ceiling and Lowest Floor:</strong> Max capability, requires skill to master.</p>
+                            <p><strong class="font-semibold text-purple-700">High Ceiling and Low Floor:</strong> Strong capability, accessible start.</p>
+                            <p><strong class="font-semibold text-blue-700">Low Ceiling and High Floor:</strong> Easy to use, limited potential.</p>
+                            <p><strong class="font-semibold text-slate-700">Lowest Ceiling and Highest Floor:</strong> Simplest start, restricted growth.</p>
                         </div>
 
                         <!-- Visualization -->
@@ -188,7 +188,7 @@
                             </div>
                         </div>
                         <div class="text-center mt-3 text-xs text-slate-500">
-                            The blue band shows AI Independence Levels as a range, from maximum potential (Ceiling) to minimum baseline (Floor).
+                            The bands show AI Independence Levels as a range, from maximum potential (Ceiling) to minimum baseline (Floor).
                         </div>
                     </div>
                 </div>
@@ -204,22 +204,22 @@
                         <!-- D. Early Technical Co-Founder (Indigo) -->
                         <div class="relative pl-3 border-l-2 border-indigo-600">
                             <span class="font-bold text-indigo-800">D. Early Technical Co-Founder</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>4. Agency</strong> in AI Independence Levels. Requires high technical skill to define architecture and task boundaries, delegating full implementation to an Orchestrator Agent to coordinate multiple agents or tasks, assign work, and aggregate results. This is widely used in multi-agent frameworks.</p>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <span class="font-bold text-indigo-700">4. Agency</span> in AI Independence Levels. Requires high technical skill to define architecture and task boundaries, delegating full implementation to an Orchestrator Agent to coordinate multiple agents or tasks, assign work, and aggregate results. This is widely used in multi-agent frameworks.</p>
                         </div>
                         <!-- C. Product Engineer (Purple) -->
                         <div class="relative pl-3 border-l-2 border-purple-500">
                             <span class="font-bold text-purple-700">C. Product Engineer</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>3. Autonomy</strong> in AI Independence Levels. Wants flow with integrated tools (Puppeteer/Browser) to visualize and iterate on features quickly.</p>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <span class="font-bold text-purple-700">3. Autonomy</span> in AI Independence Levels. Wants flow with integrated tools (Puppeteer/Browser) to visualize and iterate on features quickly.</p>
                         </div>
                         <!-- B. Core Developer (Blue) -->
                         <div class="relative pl-3 border-l-2 border-blue-400">
                             <span class="font-bold text-blue-700">B. Core Developer</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>2. Augmentation</strong> in AI Independence Levels. Wants control over logic and syntax. Uses AI for search and refactoring but writes the critical path personally.</p>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <span class="font-bold text-blue-700">2. Augmentation</span> in AI Independence Levels. Wants control over logic and syntax. Uses AI for search and refactoring but writes the critical path personally.</p>
                         </div>
                         <!-- A. Technical PM (Slate) -->
                         <div class="relative pl-3 border-l-2 border-slate-400">
                             <span class="font-bold text-slate-700">A. Technical Product Manager</span>
-                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>1. Assistance</strong> in AI Independence Levels. Wants understanding. Uses AI to explain code, generate prototypes, and unblock basic technical hurdles.</p>
+                            <p class="text-slate-600 text-xs mt-0.5">Prioritizes <span class="font-bold text-slate-700">1. Assistance</span> in AI Independence Levels. Wants understanding. Uses AI to explain code, generate prototypes, and unblock basic technical hurdles.</p>
                         </div>
                     </div>
                 </div>
@@ -586,19 +586,6 @@
         // ==========================================
         const toolsData = [
             {
-                name: "Claude Code",
-                url: "https://code.claude.com/docs/en/setup",
-                level: "D. Early Technical Co-Founder",
-                workflow: "Agentic CLI",
-                agentic: "4. Agency",
-                git: "Yes",
-                browser: "Headless",
-                llm: "Claude Opus 4.5",
-                pricing: "$20/mo to Usage Based",
-                indemnity: "No",
-                notes: "Multi-platform agentic coding assistant (CLI, IDE, web, mobile) powered by Claude Sonnet 4.5 and Opus 4.5. Reads entire codebases with full project context awareness. Autonomously edits files, executes commands, manages git workflows, and implements solutions end-to-end. Suited for complex architectural reasoning and hands-on development tasks in a collaborative, real-time workflow."
-            },
-            {
                 name: "Antigravity",
                 url: "https://antigravity.google/download",
                 level: "D. Early Technical Co-Founder",
@@ -612,6 +599,19 @@
                 notes: "Partner architecture; provides maximum developer control by executing tool commands only on explicit prompts. No background watcher daemon."
             },
             {
+                name: "Claude Code",
+                url: "https://code.claude.com/docs/en/setup",
+                level: "D. Early Technical Co-Founder",
+                workflow: "Agentic CLI",
+                agentic: "4. Agency",
+                git: "Yes",
+                browser: "Headless",
+                llm: "Claude Opus 4.5",
+                pricing: "$20 to Usage Based",
+                indemnity: "No",
+                notes: "Multi-platform agentic coding assistant (CLI, IDE, web, mobile) powered by Claude Opus 4.5. Reads entire codebases with full project context awareness. Autonomously edits files, executes commands, manages git workflows, and implements solutions end-to-end. Suited for complex architectural reasoning and hands-on development tasks in a collaborative, real-time workflow."
+            },
+            {
                 name: "OpenAI Codex",
                 url: "https://developers.openai.com/codex/cli/",
                 level: "D. Early Technical Co-Founder",
@@ -620,9 +620,9 @@
                 git: "Yes",
                 browser: "Search",
                 llm: "GPT-5.2",
-                pricing: "$20/mo to Usage Based",
+                pricing: "$20 to Usage Based",
                 indemnity: "No",
-                notes: "Cloud‑native coding agent powered by codex‑1 (an o3‑based model optimized for software engineering). Codex can run multiple tasks concurrently in isolated cloud sandbox environments, with each task preloaded with your codebase and dependencies. It is accessible via cloud, local CLI, and IDE interfaces (including VS Code, Cursor, and others) so developers can pair with Codex locally or delegate background work to the cloud. Codex compacts context to manage long sessions, preserving relevant state as it approaches context limits to support sustained and complex coding tasks. The system’s ability to run independent cloud tasks in parallel across workflows is a core aspect of its design for broad‑scope software development."
+                notes: "Cloud‑native coding agent powered by GPT-5.2. Codex can run multiple tasks concurrently in isolated cloud sandbox environments, with each task preloaded with your codebase and dependencies. It is accessible via cloud, local CLI, and IDE interfaces (including VS Code, Cursor, and others) so developers can pair with Codex locally or delegate background work to the cloud. Codex compacts context to manage long sessions, preserving relevant state as it approaches context limits to support sustained and complex coding tasks. The system’s ability to run independent cloud tasks in parallel across workflows is a core aspect of its design for broad‑scope software development."
             },
             {
                 name: "Windsurf",
@@ -659,7 +659,7 @@
                 git: "Yes",
                 browser: "Search",
                 llm: "Claude Opus 4.5, Gemini 3, GPT-5.2, Local Ollama, Remote BYOK",
-                pricing: "$10/mo to Usage Based",
+                pricing: "Free / $10 to Usage Based",
                 indemnity: "Yes",
                 notes: "Advanced code generation and refactoring. Can autonomously handle small to medium tasks like implementing functions or fixing bugs based on user prompts."
             },
@@ -672,7 +672,7 @@
                 git: "Yes",
                 browser: "Embedded",
                 llm: "Claude Opus 4.5, Gemini 3, GPT-5.2, Composer-1, Local Ollama, Remote BYOK",
-                pricing: "Free / $20 / $40+",
+                pricing: "Free / $20 / $40 / $60 / $200",
                 indemnity: "No",
                 notes: 'Focuses on speed & precision with a side-panel chat and Composer for multi-file edits. Deep Git integration, acting like a GitHub teammate to auto-generate commits & reviews.'
             },
@@ -726,7 +726,7 @@
                 llm: "Gemini 3",
                 pricing: "Free",
                 indemnity: "No",
-                notes: "Acts as a senior frontend engineer with UI/UX expertise. Interprets meta-commands like 'commit' as creative prompts to build new features."
+                notes: "Acts as a senior frontend engineer with UI/UX expertise. Creatively interprets meta-commands like commit as chat prompts to commit to building new features."
             }
         ];
 
@@ -765,7 +765,7 @@
             } else if (type === 'level') {
                 // Mapped to Persona / Trust Levels
                 // D. Early Technical Co-Founder (Indigo)
-                if (v.includes('Early Technical Co-Founder')) classes += "bg-indigo-100 text-indigo-800 border border-indigo-200";
+                if (v.includes('early technical co-founder')) classes += "bg-indigo-100 text-indigo-800 border border-indigo-200";
                 // C. Product Engineer (Purple)
                 else if (v.includes('product engineer')) classes += "bg-purple-100 text-purple-800 border border-purple-200";
                 // B. Core Developer (Blue)
@@ -1111,9 +1111,11 @@
                 const levelB = b.level.split('.')[0];
                 if (levelA !== levelB) return levelB.localeCompare(levelA);
 
-                // 3. Workflow Fits (asc)
+                // 3. Workflow Fits (asc) - REMOVED
+                /*
                 const workflowCompare = a.workflow.localeCompare(b.workflow);
                 if (workflowCompare !== 0) return workflowCompare;
+                */
 
                 // 4. Agentic Git (custom order: Yes, Assisted, No)
                 const gitOrder = { 'Yes': 0, 'Assisted': 1, 'No': 2 };
@@ -1121,7 +1123,8 @@
                 const gitB = gitOrder[b.git] ?? 99;
                 if (gitA !== gitB) return gitA - gitB;
 
-                // 5. Agentic Browser (custom order)
+                // 5. Agentic Browser (custom order) - REMOVED
+                /*
                 const browserOrder = {
                     'Interactive': 0, 'Embedded': 1, 'Headless': 2, 
                     'Search': 3, 'Scraping': 4, 'No': 5
@@ -1129,6 +1132,7 @@
                 const browserA = browserOrder[a.browser] ?? 99;
                 const browserB = browserOrder[b.browser] ?? 99;
                 if (browserA !== browserB) return browserA - browserB;
+                */
 
                 // 6. Tool Name (asc) as a final tie-breaker
                 return a.name.localeCompare(b.name);

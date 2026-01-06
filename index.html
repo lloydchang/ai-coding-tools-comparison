@@ -201,9 +201,9 @@
                     </div>
 
                     <div class="space-y-4">
-                        <!-- D. Solo Founder (Indigo) -->
+                        <!-- D. Early Co-Founder (Indigo) -->
                         <div class="relative pl-3 border-l-2 border-indigo-600">
-                            <span class="font-bold text-indigo-800">D. Solo Founder</span>
+                            <span class="font-bold text-indigo-800">D. Early Co-Founder</span>
                             <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>4. Agency</strong> in AI Independence Levels. Requires high technical skill to define architecture and task boundaries, delegating full implementation to an Orchestrator Agent to coordinate multiple agents or tasks, assign work, and aggregate results. This is widely used in multi-agent frameworks.</p>
                         </div>
                         <!-- C. Product Engineer (Purple) -->
@@ -588,7 +588,7 @@
             {
                 name: "Claude Code",
                 url: "https://code.claude.com/docs/en/setup",
-                level: "D. Solo Founder",
+                level: "D. Early Co-Founder",
                 workflow: "Agentic CLI",
                 agentic: "4. Agency",
                 git: "Yes",
@@ -601,7 +601,7 @@
             {
                 name: "Antigravity",
                 url: "https://antigravity.google/download",
-                level: "D. Solo Founder",
+                level: "D. Early Co-Founder",
                 workflow: "Agentic IDE (Partner)",
                 agentic: "4. Agency",
                 git: "Yes",
@@ -614,7 +614,7 @@
             {
                 name: "OpenAI Codex",
                 url: "https://developers.openai.com/codex/cli/",
-                level: "D. Solo Founder",
+                level: "D. Early Co-Founder",
                 workflow: "Agentic CLI & Cloud",
                 agentic: "4. Agency",
                 git: "Yes",
@@ -764,8 +764,8 @@
                 else classes += "bg-slate-100 text-slate-400";
             } else if (type === 'level') {
                 // Mapped to Persona / Trust Levels
-                // D. Solo Founder (Indigo)
-                if (v.includes('solo founder')) classes += "bg-indigo-100 text-indigo-800 border border-indigo-200";
+                // D. Early Co-Founder (Indigo)
+                if (v.includes('Early Co-Founder')) classes += "bg-indigo-100 text-indigo-800 border border-indigo-200";
                 // B. Core Developer (Blue)
                 else if (v.includes('core developer')) classes += "bg-blue-100 text-blue-800 border border-blue-200";
                 // C. Product Engineer (Purple)

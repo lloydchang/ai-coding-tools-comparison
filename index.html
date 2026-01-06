@@ -206,9 +206,9 @@
                             <span class="font-bold text-indigo-800">D. Solo Founder</span>
                             <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>4. Agency</strong>. Requires high technical skill to define architecture and task boundaries, delegating full implementation to the AI (The "Manager").</p>
                         </div>
-                        <!-- C. Core Developer (Blue) -->
+                        <!-- B. Core Developer (Blue) -->
                         <div class="relative pl-3 border-l-2 border-blue-400">
-                            <span class="font-bold text-blue-700">C. Core Developer</span>
+                            <span class="font-bold text-blue-700">B. Core Developer</span>
                             <p class="text-slate-600 text-xs mt-0.5">Prioritizes <strong>2. Augmentation</strong>. Wants "Control" over logic and syntax. Uses AI for search and refactoring but writes the critical path personally.</p>
                         </div>
                         <!-- B. Product Engineer (Purple) -->
@@ -653,7 +653,7 @@
             {
                 name: "GitHub Copilot",
                 url: "https://marketplace.visualstudio.com/items?itemName=GitHub.copilot",
-                level: "C. Core Developer",
+                level: "B. Core Developer",
                 workflow: "IDE Integration",
                 agentic: "3. Autonomy",
                 git: "Yes",
@@ -766,7 +766,7 @@
                 // Mapped to Persona / Trust Levels
                 // D. Solo Founder (Indigo)
                 if (v.includes('solo founder')) classes += "bg-indigo-100 text-indigo-800 border border-indigo-200";
-                // C. Core Developer (Blue)
+                // B. Core Developer (Blue)
                 else if (v.includes('core developer')) classes += "bg-blue-100 text-blue-800 border border-blue-200";
                 // B. Product Engineer (Purple)
                 else if (v.includes('product engineer')) classes += "bg-purple-100 text-purple-800 border border-purple-200";

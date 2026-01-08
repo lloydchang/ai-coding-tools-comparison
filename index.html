@@ -266,14 +266,6 @@
                             <th onclick="sortTable('workflow')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group">
                                 <div class="flex items-center gap-1">Workflow Fits <span id="sort-workflow" class="sort-icon opacity-30">↕</span></div>
                             </th>
-                            <!-- 5: Agentic Git -->
-                            <th onclick="sortTable('git')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group">
-                                <div class="flex items-center gap-1">Agentic Git <span id="sort-git" class="sort-icon opacity-30">↕</span></div>
-                            </th>
-                            <!-- 6: Agentic Browser -->
-                            <th onclick="sortTable('browser')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group">
-                                <div class="flex items-center gap-1">Agentic Browser <span id="sort-browser" class="sort-icon opacity-30">↕</span></div>
-                            </th>
                             <!-- 7: Pricing -->
                             <th onclick="sortTable('pricing')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group">
                                 <div class="flex items-center gap-1">Pricing <span id="sort-pricing" class="sort-icon opacity-30">↕</span></div>
@@ -591,8 +583,6 @@
                 persona: "D. Early Technical Co-Founder",
                 workflow: "Agentic IDE",
                 aiIndependenceLevels: "4. Agency",
-                git: "Yes",
-                browser: "Interactive",
                 llm: "Claude Opus 4.5, Gemini 3",
                 pricing: "Free / $20 / $250",
                 indemnity: "No",
@@ -604,8 +594,6 @@
                 persona: "D. Early Technical Co-Founder",
                 workflow: "CLI, IDE Integration",
                 aiIndependenceLevels: "4. Agency",
-                git: "Yes",
-                browser: "Headless",
                 llm: "Claude Opus 4.5",
                 pricing: "$20 / Usage Based",
                 indemnity: "No",
@@ -617,8 +605,6 @@
                 persona: "D. Early Technical Co-Founder",
                 workflow: "CLI, IDE Integration",
                 aiIndependenceLevels: "4. Agency",
-                git: "Yes",
-                browser: "Search",
                 llm: "GPT-5.2",
                 pricing: "$20 / Usage Based",
                 indemnity: "No",
@@ -630,8 +616,6 @@
                 persona: "C. Product Engineer",
                 workflow: "Agentic IDE",
                 aiIndependenceLevels: "3. Autonomy",
-                git: "Yes",
-                browser: "Embedded",
                 llm: "Claude Opus 4 BYOK, Gemini 2.5, GPT-5.2, SWE-1.5",
                 pricing: "Free / $15 / $30 / Usage Based",
                 indemnity: "No",
@@ -643,8 +627,6 @@
                 persona: "B. Core Developer",
                 workflow: "Task-focused CLI automation",
                 aiIndependenceLevels: "3. Autonomy",
-                git: "Yes",
-                browser: "Scraping",
                 llm: "Local Ollama, Remote BYOK",
                 pricing: "Usage Based",
                 indemnity: "No",
@@ -656,8 +638,6 @@
                 persona: "B. Core Developer",
                 workflow: "IDE Integration",
                 aiIndependenceLevels: "3. Autonomy",
-                git: "Yes",
-                browser: "Search",
                 llm: "Claude Opus 4.5, Gemini 3, GPT-5.2, Local Ollama, Remote BYOK",
                 pricing: "Free / $10 / Usage Based",
                 indemnity: "Yes",
@@ -669,8 +649,6 @@
                 persona: "C. Product Engineer",
                 workflow: "Agentic IDE",
                 aiIndependenceLevels: "3. Autonomy",
-                git: "Yes",
-                browser: "Embedded",
                 llm: "Claude Opus 4.5, Gemini 3, GPT-5.2, Composer-1, Local Ollama, Remote BYOK",
                 pricing: "Free / $20 / $40 / $60 / $200 / Usage Based",
                 indemnity: "No",
@@ -682,8 +660,6 @@
                 persona: "A. Technical Product Manager",
                 workflow: "Task-focused IDE automation",
                 aiIndependenceLevels: "3. Autonomy",
-                git: "Yes",
-                browser: "Interactive",
                 llm: "Local Ollama, Remote BYOK",
                 pricing: "Usage Based",
                 indemnity: "No",
@@ -695,8 +671,6 @@
                 persona: "A. Technical Product Manager",
                 workflow: "Task-focused IDE automation",
                 aiIndependenceLevels: "2. Augmentation",
-                git: "Yes",
-                browser: "Interactive",
                 llm: "Local Ollama, Remote BYOK",
                 pricing: "Usage Based",
                 indemnity: "No",
@@ -708,8 +682,6 @@
                 persona: "A. Technical Product Manager",
                 workflow: "Task-focused IDE automation",
                 aiIndependenceLevels: "2. Augmentation",
-                git: "Yes",
-                browser: "Interactive",
                 llm: "Local Ollama, Remote BYOK",
                 pricing: "Usage Based",
                 indemnity: "No",
@@ -721,8 +693,6 @@
                 persona: "A. Technical Product Manager",
                 workflow: "Web IDE",
                 aiIndependenceLevels: "1. Assistance",
-                git: "No",
-                browser: "No",
                 llm: "Gemini 3",
                 pricing: "Free",
                 indemnity: "No",
@@ -753,15 +723,6 @@
                 else if (v.includes('augmentation')) classes += "bg-blue-100 text-blue-800 border border-blue-200";
                 else if (v.includes('assistance')) classes += "bg-slate-100 text-slate-700 border border-slate-200";
                 else classes += "bg-slate-100 text-slate-800";
-            } else if (type === 'git') {
-                if (v === 'yes') classes += "bg-green-100 text-green-800";
-                else if (v === 'assisted') classes += "bg-yellow-100 text-yellow-800";
-                else classes += "bg-slate-100 text-slate-600";
-            } else if (type === 'browser') {
-                if (v === 'interactive' || v === 'embedded') classes += "bg-pink-100 text-pink-800 border border-pink-200";
-                else if (v === 'headless' || v === 'scraping') classes += "bg-orange-100 text-orange-800";
-                else if (v === 'search') classes += "bg-blue-50 text-blue-600";
-                else classes += "bg-slate-100 text-slate-400";
             } else if (type === 'persona') {
                 // Mapped to Persona
                 // D. Early Technical Co-Founder (Indigo)
@@ -789,8 +750,6 @@
                     <td class="px-6 py-4">${getBadge(row.aiIndependenceLevels, 'aiIndependenceLevels')}</td>
                     <td class="px-6 py-4">${getBadge(row.persona, 'persona')}</td>
                     <td class="px-6 py-4 text-slate-600">${row.workflow}</td>
-                    <td class="px-6 py-4">${getBadge(row.git, 'git')}</td>
-                    <td class="px-6 py-4">${getBadge(row.browser, 'browser')}</td>
                     <td class="px-6 py-4 text-slate-600">${row.pricing}</td>
                     <td class="px-6 py-4 ${row.indemnity === 'Yes' ? 'font-bold text-green-600' : 'text-slate-600'}">${row.indemnity}</td>
                     <td class="px-6 py-4 text-sm text-slate-500">${row.notes}</td>
@@ -1110,31 +1069,6 @@
                 const personaA = a.persona.split('.')[0];
                 const personaB = b.persona.split('.')[0];
                 if (personaA !== personaB) return personaB.localeCompare(personaA);
-
-                // 3. Workflow Fits (asc) - REMOVED
-                /*
-                const workflowCompare = a.workflow.localeCompare(b.workflow);
-                if (workflowCompare !== 0) return workflowCompare;
-                */
-
-                // 4. Git (custom order: Yes, Assisted, No) - REMOVED
-                /*
-                const gitOrder = { 'Yes': 0, 'Assisted': 1, 'No': 2 };
-                const gitA = gitOrder[a.git] ?? 99;
-                const gitB = gitOrder[b.git] ?? 99;
-                if (gitA !== gitB) return gitA - gitB;
-                */
-
-                // 5. Browser (custom order) - REMOVED
-                /*
-                const browserOrder = {
-                    'Interactive': 0, 'Embedded': 1, 'Headless': 2, 
-                    'Search': 3, 'Scraping': 4, 'No': 5
-                };
-                const browserA = browserOrder[a.browser] ?? 99;
-                const browserB = browserOrder[b.browser] ?? 99;
-                if (browserA !== browserB) return browserA - browserB;
-                */
 
                 // 6. Tool Name (asc) as a final tie-breaker
                 return a.name.localeCompare(b.name);

@@ -741,20 +741,30 @@
 
         function renderTable() {
             const tbody = document.getElementById('tableBody');
-            tbody.innerHTML = state.data.map(row => `
-                <tr class="hover:bg-indigo-50 transition-colors">
-                    <td class="px-6 py-4 text-slate-600 text-xs leading-relaxed max-w-xs">${row.llm}</td>
-                    <td class="px-6 py-4 font-semibold text-slate-900">
-                        ${row.url ? `<a href="${row.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors">${row.name}</a>` : row.name}
-                    </td>
-                    <td class="px-6 py-4">${getBadge(row.aiIndependenceLevels, 'aiIndependenceLevels')}</td>
-                    <td class="px-6 py-4">${getBadge(row.persona, 'persona')}</td>
-                    <td class="px-6 py-4 text-slate-600">${row.workflow}</td>
-                    <td class="px-6 py-4 text-slate-600">${row.pricing}</td>
-                    <td class="px-6 py-4 ${row.indemnity === 'Yes' ? 'font-bold text-green-600' : 'text-slate-600'}">${row.indemnity}</td>
-                    <td class="px-6 py-4 text-sm text-slate-500">${row.notes}</td>
-                </tr>
-            `).join('');
+            if (state.data.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8" class="text-center py-12 text-slate-500 italic">
+                            No tools match your filter.
+                        </td>
+                    </tr>
+                `;
+            } else {
+                tbody.innerHTML = state.data.map(row => `
+                    <tr class="hover:bg-indigo-50 transition-colors">
+                        <td class="px-6 py-4 text-slate-600 text-xs leading-relaxed max-w-xs">${row.llm}</td>
+                        <td class="px-6 py-4 font-semibold text-slate-900">
+                            ${row.url ? `<a href="${row.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors">${row.name}</a>` : row.name}
+                        </td>
+                        <td class="px-6 py-4">${getBadge(row.aiIndependenceLevels, 'aiIndependenceLevels')}</td>
+                        <td class="px-6 py-4">${getBadge(row.persona, 'persona')}</td>
+                        <td class="px-6 py-4 text-slate-600">${row.workflow}</td>
+                        <td class="px-6 py-4 text-slate-600">${row.pricing}</td>
+                        <td class="px-6 py-4 ${row.indemnity === 'Yes' ? 'font-bold text-green-600' : 'text-slate-600'}">${row.indemnity}</td>
+                        <td class="px-6 py-4 text-sm text-slate-500">${row.notes}</td>
+                    </tr>
+                `).join('');
+            }
 
             // Update Sort Icons
             document.querySelectorAll('.sort-icon').forEach(icon => {

@@ -348,7 +348,7 @@
                         <tr class="hover:bg-slate-50/50 transition-colors">
                             <td class="p-4 font-semibold text-slate-900 bg-slate-50/30 align-top">Design Philosophy</td>
                             <td class="p-4 align-top"><strong>Partner:</strong> Developers orchestrate agents to execute specific tasks with maximum control. No background file watcher daemons.</td>
-                            <td class="p-4 align-top"><strong>Agentic IDE (Background Guardian):</strong> Its <strong>Cascade</strong> agent uses a specialized planning agent to continuously refine plans in the background, maintaining real-time awareness of user actions.</td>
+                            <td class="p-4 align-top"><strong>Agentic IDE with Cascade:</strong> Its <strong>Cascade</strong> agent tracks user actions, edits, commands, and conversation history to provide context-aware assistance with dense reasoning over implicit user intent.</td>
                             <td class="p-4 align-top"><strong>AI-assisted coding:</strong> Focuses on speed, tab completion, and quick, user-directed code generation within a familiar editor interface.</td>
                         </tr>
                         <tr class="hover:bg-slate-50/50 transition-colors">
@@ -377,7 +377,7 @@
                 <p class="text-sm text-slate-600 mb-4">AI IDEs use dedicated, AI-controlled browsers to automate testing, gather context, and perform web-based development tasks.</p>
                 <ul class="space-y-3 text-sm text-slate-700">
                     <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Antigravity:</strong> Employs a separate Chrome profile for its agent, enabling high-autonomy UI testing with reviewable "artifacts" like screenshots and video recordings.</span></li>
-                    <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Windsurf:</strong> Features a dedicated, deeply integrated browser that passively observes the user's workflow to automatically collect context from logs, the DOM, and screenshots, enhancing its "flow state" assistance.</span></li>
+                    <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Windsurf:</strong> Features a fully functional browser that integrates with Cascade for web search, documentation lookup, live previews, and one-click deployment. Users interact with it explicitly rather than it passively observing workflows.</span></li>                    
                     <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Cursor:</strong> Provides an embedded browser tool that agents use for specific, user-directed tasks like automated testing, accessibility audits, and debugging, often invoked with explicit commands like <code>@browser</code>.</span></li>
                 </ul>
             </div>
@@ -385,7 +385,7 @@
                 <h3 class="text-lg font-bold text-slate-800 mb-4">Git Features</h3>
                 <p class="text-sm text-slate-600 mb-4">These platforms generally support standard Git and version control workflows. Key integrations and features within these AI IDEs include:</p>
                 <ul class="space-y-3 text-sm text-slate-700">
-                    <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Execution Style:</strong> Tools divide into "Background Guardians" (Windsurf) that auto-index/commit, and "Partners" (Antigravity) that execute only on command.</span></li>
+                    <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Execution Style:</strong> Tools differ in their approach to Git automation - Windsurf supports background auto-commit via persistent rules, while Antigravity requires explicit command execution.</span></li>
                     <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Automatic Code Review:</strong> Agents can perform automatic code reviews as part of team collaboration features.</span></li>
                     <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Seamless Integrations:</strong> Tools like Windsurf and Cursor integrate with platforms such as GitHub and Slack.</span></li>
                     <li class="flex gap-3"><span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span><span><strong>Agent Interaction:</strong> Agents can be given natural language instructions (e.g., "fix all bugs in this module") and interact with terminal/Git tools.</span></li>

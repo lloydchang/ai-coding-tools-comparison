@@ -255,7 +255,7 @@
                                 <div class="flex items-center gap-1">Tool Name <span id="sort-name" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 2: AI Independence Levels -->
-                            <th onclick="sortTable('agentic')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group">
+                            <th onclick="sortTable('aiIndependenceLevels')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group">
                                 <div class="flex items-center gap-1">AI Independence Levels <span id="sort-agentic" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 3: Target User Persona -->
@@ -590,7 +590,7 @@
                 url: "https://antigravity.google/download",
                 persona: "D. Early Technical Co-Founder",
                 workflow: "Agentic IDE (Partner)",
-                agentic: "4. Agency",
+                aiIndependenceLevels: "4. Agency",
                 git: "Yes",
                 browser: "Interactive",
                 llm: "Claude Opus 4.5, Gemini 3",
@@ -603,7 +603,7 @@
                 url: "https://code.claude.com/docs/en/setup",
                 persona: "D. Early Technical Co-Founder",
                 workflow: "CLI, IDE Integration",
-                agentic: "4. Agency",
+                aiIndependenceLevels: "4. Agency",
                 git: "Yes",
                 browser: "Headless",
                 llm: "Claude Opus 4.5",
@@ -616,7 +616,7 @@
                 url: "https://developers.openai.com/codex/cli/",
                 persona: "D. Early Technical Co-Founder",
                 workflow: "CLI, IDE Integration",
-                agentic: "4. Agency",
+                aiIndependenceLevels: "4. Agency",
                 git: "Yes",
                 browser: "Search",
                 llm: "GPT-5.2",
@@ -629,7 +629,7 @@
                 url: "https://windsurf.com/download",
                 persona: "C. Product Engineer",
                 workflow: "Agentic IDE",
-                agentic: "3. Autonomy",
+                aiIndependenceLevels: "3. Autonomy",
                 git: "Yes",
                 browser: "Embedded",
                 llm: "Claude Opus 4 BYOK, Gemini 2.5, GPT-5.2, SWE-1.5",
@@ -642,7 +642,7 @@
                 url: "https://aider.chat/#getting-started",
                 persona: "B. Core Developer",
                 workflow: "Task-focused CLI automation",
-                agentic: "3. Autonomy",
+                aiIndependenceLevels: "3. Autonomy",
                 git: "Yes",
                 browser: "Scraping",
                 llm: "Local Ollama, Remote BYOK",
@@ -655,7 +655,7 @@
                 url: "https://marketplace.visualstudio.com/items?itemName=GitHub.copilot",
                 persona: "B. Core Developer",
                 workflow: "IDE Integration",
-                agentic: "3. Autonomy",
+                aiIndependenceLevels: "3. Autonomy",
                 git: "Yes",
                 browser: "Search",
                 llm: "Claude Opus 4.5, Gemini 3, GPT-5.2, Local Ollama, Remote BYOK",
@@ -668,7 +668,7 @@
                 url: "https://cursor.com/download",
                 persona: "C. Product Engineer",
                 workflow: "Agentic IDE",
-                agentic: "3. Autonomy",
+                aiIndependenceLevels: "3. Autonomy",
                 git: "Yes",
                 browser: "Embedded",
                 llm: "Claude Opus 4.5, Gemini 3, GPT-5.2, Composer-1, Local Ollama, Remote BYOK",
@@ -681,7 +681,7 @@
                 url: "https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline",
                 persona: "A. Technical Product Manager",
                 workflow: "Task-focused IDE automation",
-                agentic: "3. Autonomy",
+                aiIndependenceLevels: "3. Autonomy",
                 git: "Yes",
                 browser: "Interactive",
                 llm: "Local Ollama, Remote BYOK",
@@ -694,7 +694,7 @@
                 url: "https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev",
                 persona: "A. Technical Product Manager",
                 workflow: "Task-focused IDE automation",
-                agentic: "2. Augmentation",
+                aiIndependenceLevels: "2. Augmentation",
                 git: "Yes",
                 browser: "Interactive",
                 llm: "Local Ollama, Remote BYOK",
@@ -707,7 +707,7 @@
                 url: "https://marketplace.visualstudio.com/items?itemName=kilocode.Kilo-Code",
                 persona: "A. Technical Product Manager",
                 workflow: "Task-focused IDE automation",
-                agentic: "2. Augmentation",
+                aiIndependenceLevels: "2. Augmentation",
                 git: "Yes",
                 browser: "Interactive",
                 llm: "Local Ollama, Remote BYOK",
@@ -720,7 +720,7 @@
                 url: "https://aistudio.google.com/apps",
                 persona: "A. Technical Product Manager",
                 workflow: "Web IDE (Creative Interpreter)",
-                agentic: "1. Assistance",
+                aiIndependenceLevels: "1. Assistance",
                 git: "No",
                 browser: "No",
                 llm: "Gemini 3",
@@ -747,7 +747,7 @@
             const v = value.toLowerCase();
             let classes = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium whitespace-nowrap ";
             
-            if (type === 'agentic') {
+            if (type === 'aiIndependenceLevels') {
                 if (v.includes('agency')) classes += "bg-indigo-100 text-indigo-800 border border-indigo-200";
                 else if (v.includes('autonomy')) classes += "bg-purple-100 text-purple-800 border border-purple-200";
                 else if (v.includes('augmentation')) classes += "bg-blue-100 text-blue-800 border border-blue-200";
@@ -786,7 +786,7 @@
                     <td class="px-6 py-4 font-semibold text-slate-900">
                         ${row.url ? `<a href="${row.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors">${row.name}</a>` : row.name}
                     </td>
-                    <td class="px-6 py-4">${getBadge(row.agentic, 'agentic')}</td>
+                    <td class="px-6 py-4">${getBadge(row.aiIndependenceLevels, 'aiIndependenceLevels')}</td>
                     <td class="px-6 py-4">${getBadge(row.persona, 'persona')}</td>
                     <td class="px-6 py-4 text-slate-600">${row.workflow}</td>
                     <td class="px-6 py-4">${getBadge(row.git, 'git')}</td>
@@ -1102,9 +1102,9 @@
             
             function multiLevelSort(a, b) {
                 // 1. AI Independence Levels (desc)
-                const agenticA = parseInt(a.agentic.split('.')[0]);
-                const agenticB = parseInt(b.agentic.split('.')[0]);
-                if (agenticA !== agenticB) return agenticB - agenticA;
+                const aiIndependenceLevelsA = parseInt(a.aiIndependenceLevels.split('.')[0]);
+                const aiIndependenceLevelsB = parseInt(b.aiIndependenceLevels.split('.')[0]);
+                if (aiIndependenceLevelsA !== aiIndependenceLevelsB) return aiIndependenceLevelsB - aiIndependenceLevelsA;
 
                 // 2. Target User Persona (desc)
                 const personaA = a.persona.split('.')[0];
@@ -1143,7 +1143,7 @@
             state.data.sort(multiLevelSort);
             
             // Set the primary sort indicator for the UI
-            state.sortCol = 'agentic';
+            state.sortCol = 'aiIndependenceLevels';
             state.sortAsc = false;
 
             renderTable();

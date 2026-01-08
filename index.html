@@ -234,7 +234,6 @@
             <input 
                 type="text" 
                 id="searchInput" 
-                onkeyup="filterTable()"
                 placeholder="Filter table by LLM Used, AI Independence Levels, Target User Persona" 
                 class="w-full p-4 pl-12 bg-white border border-slate-300 rounded-xl shadow-sm focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none transition-all text-slate-800 placeholder-slate-400"
             />
@@ -781,6 +780,19 @@
         }
 
         // ==========================================
+        // DEBOUNCE
+        // ==========================================
+        function debounce(func, delay) {
+            let timeoutId;
+            return function(...args) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => {
+                    func.apply(this, args);
+                }, delay);
+            };
+        }
+
+        // ==========================================
         // LOGIC
         // ==========================================
         window.sortTable = function(col) {
@@ -1013,6 +1025,15 @@
 
         // Initial Render
         document.addEventListener('DOMContentLoaded', () => {
+
+            // ==========================================
+            // DEBOUNCED SEARCH
+            // ==========================================
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                // Apply debounce to the filterTable function with a 300ms delay
+                searchInput.addEventListener('keyup', debounce(filterTable, 300));
+            }
 
             // ==========================================
             // LICENSE MODAL LOGIC

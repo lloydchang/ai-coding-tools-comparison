@@ -259,8 +259,8 @@
                                 <div class="flex items-center gap-1">AI Independence Levels <span id="sort-agentic" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 3: Target User Persona -->
-                            <th onclick="sortTable('level')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group relative">
-                                <div class="flex items-center gap-1">Target User Persona <span id="sort-level" class="sort-icon opacity-30">↕</span></div>
+                            <th onclick="sortTable('persona')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group relative">
+                                <div class="flex items-center gap-1">Target User Persona <span id="sort-persona" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 4: Workflow Fits -->
                             <th onclick="sortTable('workflow')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group">
@@ -588,7 +588,7 @@
             {
                 name: "Antigravity",
                 url: "https://antigravity.google/download",
-                level: "D. Early Technical Co-Founder",
+                persona: "D. Early Technical Co-Founder",
                 workflow: "Agentic IDE (Partner)",
                 agentic: "4. Agency",
                 git: "Yes",
@@ -601,7 +601,7 @@
             {
                 name: "Claude Code",
                 url: "https://code.claude.com/docs/en/setup",
-                level: "D. Early Technical Co-Founder",
+                persona: "D. Early Technical Co-Founder",
                 workflow: "CLI, IDE Integration",
                 agentic: "4. Agency",
                 git: "Yes",
@@ -614,7 +614,7 @@
             {
                 name: "OpenAI Codex",
                 url: "https://developers.openai.com/codex/cli/",
-                level: "D. Early Technical Co-Founder",
+                persona: "D. Early Technical Co-Founder",
                 workflow: "CLI, IDE Integration",
                 agentic: "4. Agency",
                 git: "Yes",
@@ -627,7 +627,7 @@
             {
                 name: "Windsurf",
                 url: "https://windsurf.com/download",
-                level: "C. Product Engineer",
+                persona: "C. Product Engineer",
                 workflow: "Agentic IDE with Cascade AI agent",
                 agentic: "3. Autonomy",
                 git: "Yes",
@@ -640,7 +640,7 @@
             {
                 name: "Aider",
                 url: "https://aider.chat/#getting-started",
-                level: "B. Core Developer",
+                persona: "B. Core Developer",
                 workflow: "Task-focused CLI automation",
                 agentic: "3. Autonomy",
                 git: "Yes",
@@ -653,7 +653,7 @@
             {
                 name: "GitHub Copilot",
                 url: "https://marketplace.visualstudio.com/items?itemName=GitHub.copilot",
-                level: "B. Core Developer",
+                persona: "B. Core Developer",
                 workflow: "IDE Integration",
                 agentic: "3. Autonomy",
                 git: "Yes",
@@ -666,7 +666,7 @@
             {
                 name: "Cursor",
                 url: "https://cursor.com/download",
-                level: "C. Product Engineer",
+                persona: "C. Product Engineer",
                 workflow: "Agentic IDE",
                 agentic: "3. Autonomy",
                 git: "Yes",
@@ -679,7 +679,7 @@
             {
                 name: "Roo Code",
                 url: "https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline",
-                level: "A. Technical Product Manager",
+                persona: "A. Technical Product Manager",
                 workflow: "Task-focused IDE automation",
                 agentic: "3. Autonomy",
                 git: "Yes",
@@ -692,7 +692,7 @@
             {
                 name: "Cline",
                 url: "https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev",
-                level: "A. Technical Product Manager",
+                persona: "A. Technical Product Manager",
                 workflow: "Task-focused IDE automation",
                 agentic: "2. Augmentation",
                 git: "Yes",
@@ -705,7 +705,7 @@
             {
                 name: "Kilo Code",
                 url: "https://marketplace.visualstudio.com/items?itemName=kilocode.Kilo-Code",
-                level: "A. Technical Product Manager",
+                persona: "A. Technical Product Manager",
                 workflow: "Task-focused IDE automation",
                 agentic: "2. Augmentation",
                 git: "Yes",
@@ -718,7 +718,7 @@
             {
                 name: "AI Studio",
                 url: "https://aistudio.google.com/apps",
-                level: "A. Technical Product Manager",
+                persona: "A. Technical Product Manager",
                 workflow: "Web IDE (Creative Interpreter)",
                 agentic: "1. Assistance",
                 git: "No",
@@ -762,8 +762,8 @@
                 else if (v === 'headless' || v === 'scraping') classes += "bg-orange-100 text-orange-800";
                 else if (v === 'search') classes += "bg-blue-50 text-blue-600";
                 else classes += "bg-slate-100 text-slate-400";
-            } else if (type === 'level') {
-                // Mapped to Persona / Trust Levels
+            } else if (type === 'persona') {
+                // Mapped to Persona
                 // D. Early Technical Co-Founder (Indigo)
                 if (v.includes('early technical co-founder')) classes += "bg-indigo-100 text-indigo-800 border border-indigo-200";
                 // C. Product Engineer (Purple)
@@ -787,7 +787,7 @@
                         ${row.url ? `<a href="${row.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors">${row.name}</a>` : row.name}
                     </td>
                     <td class="px-6 py-4">${getBadge(row.agentic, 'agentic')}</td>
-                    <td class="px-6 py-4">${getBadge(row.level, 'level')}</td>
+                    <td class="px-6 py-4">${getBadge(row.persona, 'persona')}</td>
                     <td class="px-6 py-4 text-slate-600">${row.workflow}</td>
                     <td class="px-6 py-4">${getBadge(row.git, 'git')}</td>
                     <td class="px-6 py-4">${getBadge(row.browser, 'browser')}</td>
@@ -1107,9 +1107,9 @@
                 if (agenticA !== agenticB) return agenticB - agenticA;
 
                 // 2. Target User Persona (desc)
-                const levelA = a.level.split('.')[0];
-                const levelB = b.level.split('.')[0];
-                if (levelA !== levelB) return levelB.localeCompare(levelA);
+                const personaA = a.persona.split('.')[0];
+                const personaB = b.persona.split('.')[0];
+                if (personaA !== personaB) return personaB.localeCompare(personaA);
 
                 // 3. Workflow Fits (asc) - REMOVED
                 /*
@@ -1117,13 +1117,15 @@
                 if (workflowCompare !== 0) return workflowCompare;
                 */
 
-                // 4. Agentic Git (custom order: Yes, Assisted, No)
+                // 4. Git (custom order: Yes, Assisted, No) - REMOVED
+                /*
                 const gitOrder = { 'Yes': 0, 'Assisted': 1, 'No': 2 };
                 const gitA = gitOrder[a.git] ?? 99;
                 const gitB = gitOrder[b.git] ?? 99;
                 if (gitA !== gitB) return gitA - gitB;
+                */
 
-                // 5. Agentic Browser (custom order) - REMOVED
+                // 5. Browser (custom order) - REMOVED
                 /*
                 const browserOrder = {
                     'Interactive': 0, 'Embedded': 1, 'Headless': 2, 

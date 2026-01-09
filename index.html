@@ -896,9 +896,14 @@
             
             // Filter original data source
             state.data = toolsData.filter(row => {
-                return Object.values(row).some(val => 
-                    String(val).toLowerCase().includes(filter)
-                );
+                // Perf optimization: Use for...of with Object.keys to avoid iterating over prototype properties
+                // and to prevent creating an unnecessary intermediate array like Object.values() does.
+                for (const key of Object.keys(row)) {
+                    if (String(row[key]).toLowerCase().includes(filter)) {
+                        return true;
+                    }
+                }
+                return false;
             });
             
             // Re-apply sort if exists

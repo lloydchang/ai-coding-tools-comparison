@@ -772,6 +772,22 @@
         ];
 
         // ==========================================
+        // ESCAPE HTML UTILITY
+        // ==========================================
+        function escapeHTML(str) {
+            if (typeof str !== 'string') return str;
+            return str.replace(/[&<>"']/g, function(m) {
+                return {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;'
+                }[m];
+            });
+        }
+
+        // ==========================================
         // STATE MANAGEMENT
         // ==========================================
         let state = {
@@ -807,7 +823,7 @@
                 
                 else classes += "bg-slate-50 text-slate-600 border border-slate-100";
             }
-            return `<span class="${classes}">${value}</span>`;
+            return `<span class="${classes}">${escapeHTML(value)}</span>`;
         }
 
         function renderTable() {
@@ -823,16 +839,16 @@
             } else {
                 tbody.innerHTML = state.data.map(row => `
                     <tr class="hover:bg-indigo-50 transition-colors">
-                        <td class="px-6 py-4 text-slate-600 text-xs leading-relaxed max-w-xs">${row.llm}</td>
+                        <td class="px-6 py-4 text-slate-600 text-xs leading-relaxed max-w-xs">${escapeHTML(row.llm)}</td>
                         <td class="px-6 py-4 font-semibold text-slate-900">
-                            ${row.url ? `<a href="${row.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors">${row.name}</a>` : row.name}
+                            ${row.url ? `<a href="${row.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors">${escapeHTML(row.name)}</a>` : escapeHTML(row.name)}
                         </td>
                         <td class="px-6 py-4">${getBadge(row.aiIndependenceLevels, 'aiIndependenceLevels')}</td>
                         <td class="px-6 py-4">${getBadge(row.persona, 'persona')}</td>
-                        <td class="px-6 py-4 text-slate-600">${row.workflow}</td>
-                        <td class="px-6 py-4 text-slate-600">${row.pricing}</td>
-                        <td class="px-6 py-4 ${row.indemnity === 'Yes' ? 'font-bold text-green-600' : 'text-slate-600'}">${row.indemnity}</td>
-                        <td class="px-6 py-4 text-sm text-slate-500">${row.notes}</td>
+                        <td class="px-6 py-4 text-slate-600">${escapeHTML(row.workflow)}</td>
+                        <td class="px-6 py-4 text-slate-600">${escapeHTML(row.pricing)}</td>
+                        <td class="px-6 py-4 ${row.indemnity === 'Yes' ? 'font-bold text-green-600' : 'text-slate-600'}">${escapeHTML(row.indemnity)}</td>
+                        <td class="px-6 py-4 text-sm text-slate-500">${escapeHTML(row.notes)}</td>
                     </tr>
                 `).join('');
             }

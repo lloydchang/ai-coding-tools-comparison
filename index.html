@@ -32,26 +32,64 @@
             </div>
 
             <!-- Efficiency Paradox -->
-            <div class="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200 space-y-4 mb-8">
-                <p class="text-xl font-semibold text-slate-700 ai-sparkle p-2 rounded-lg text-center">
-                    Simple code? &nbsp;AI. &nbsp;Critical or Novel code? &nbsp;Humans.
-                </p>
-                <h2 class="text-lg font-bold text-slate-800 text-center">The Efficiency Paradox</h2>
-                <p class="text-slate-700 leading-relaxed">
-                    AI is not an "Easy Button."
-                    </br>
-                    • It can generate basic or common solutions quickly, but for critical or novel work, humans must guide it.
-                    </br>
-                    AI works best as a <strong>sparring partner</strong>:
-                    </br>
-                    • You put in more time and extra effort, it amplifies your results.
-                    </br>
-                    • It speeds up the simple stuff, but deep work still takes time and care.
-                </p>
-                <ul class="list-disc pl-5 text-slate-700">
-                    <li><strong>Routine tasks:</strong> AI can save time.</li>
-                    <li><strong>Critical or Novel tasks:</strong> AI costs more time, requiring human guidance and extra effort.</li>
-                </ul>
+            <div class="mt-6 p-6 bg-slate-50 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden mb-8">
+                <!-- Slogan Banner -->
+                <div class="text-center mb-8">
+                    <div class="inline-flex flex-wrap justify-center gap-2 items-center bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-200 mb-3 text-sm md:text-base">
+                        <span class="font-semibold text-slate-600">Simple code?</span> 
+                        <span class="font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">AI.</span> 
+                        <span class="text-slate-300 mx-1">|</span>
+                        <span class="font-semibold text-slate-600">Novel code?</span> 
+                        <span class="font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">Humans.</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-800">The Efficiency Paradox</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto mt-2 text-sm md:text-base">
+                        AI isn't an "Easy Button." It's a multiplier. It works best as a <strong>sparring partner</strong>.
+                    </p>
+                </div>
+
+                <!-- Comparison Grid -->
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <!-- Routine Tasks -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:border-green-300 transition-colors flex flex-col">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="p-2 bg-green-100 text-green-600 rounded-lg shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-slate-800">Routine Tasks</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-4 flex-grow">Boilerplate, scaffolding, unit tests, and well-known patterns.</p>
+                        <div class="pt-4 border-t border-slate-100">
+                            <div class="flex items-center gap-2 text-xs font-bold text-green-700">
+                                <span class="bg-green-100 px-2 py-1 rounded">Result: AI may save time</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Critical Tasks -->
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:border-amber-300 transition-colors flex flex-col">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="p-2 bg-amber-100 text-amber-600 rounded-lg shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-slate-800">Critical & Novel Tasks</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-4 flex-grow">Architecture, security, complex logic, debugging race conditions, and edge cases.</p>
+                        <div class="pt-4 border-t border-slate-100">
+                            <div class="flex items-center gap-2 text-xs font-bold text-amber-700">
+                                <span class="bg-amber-100 px-2 py-1 rounded">Result: AI costs more time and humans must guide</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conclusion/Summary -->
+                <div class="bg-white/50 rounded-lg p-4 text-center border border-slate-200/50">
+                    <p class="text-slate-700 text-sm leading-relaxed max-w-3xl mx-auto">
+                        <span class="font-semibold text-indigo-700">The Reality:</span>
+                        You often have to put in <em>more</em> time and effort to guide the AI properly. It speeds up the simple stuff, but deep work still takes time, expertise, and careful review.
+                    </p>
+                </div>
             </div>
                 
             <!-- Background Context (SWE-bench) -->

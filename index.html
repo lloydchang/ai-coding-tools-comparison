@@ -636,6 +636,9 @@
         // ==========================================
         // DATA STRUCTURE
         // ==========================================
+        // ⚡ Bolt optimization: The data is pre-sorted on initial load to improve performance
+        // by avoiding a synchronous sort operation that blocks the main thread.
+        // Default sort order: 1. AI Independence (desc), 2. Persona (desc), 3. Name (asc)
         const toolsData = [
             {
                 name: "Antigravity",
@@ -1189,23 +1192,6 @@
                     }
                 });
             }
-            
-            function multiLevelSort(a, b) {
-                // 1. AI Independence Levels (desc)
-                const aiIndependenceLevelsA = parseInt(a.aiIndependenceLevels.split('.')[0]);
-                const aiIndependenceLevelsB = parseInt(b.aiIndependenceLevels.split('.')[0]);
-                if (aiIndependenceLevelsA !== aiIndependenceLevelsB) return aiIndependenceLevelsB - aiIndependenceLevelsA;
-
-                // 2. Target User Persona (desc)
-                const personaA = a.persona.split('.')[0];
-                const personaB = b.persona.split('.')[0];
-                if (personaA !== personaB) return personaB.localeCompare(personaA);
-
-                // 6. Tool Name (asc) as a final tie-breaker
-                return a.name.localeCompare(b.name);
-            }
-
-            state.data.sort(multiLevelSort);
             
             // Set the primary sort indicator for the UI
             state.sortCol = 'aiIndependenceLevels';

@@ -296,8 +296,11 @@
                 type="text" 
                 id="searchInput" 
                 placeholder="Filter table by LLM Used, AI Independence Levels, Target User Persona" 
-                class="w-full p-4 pl-12 bg-white border border-slate-300 rounded-xl shadow-sm focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none transition-all text-slate-800 placeholder-slate-400"
+                class="w-full p-4 pl-12 pr-12 bg-white border border-slate-300 rounded-xl shadow-sm focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none transition-all text-slate-800 placeholder-slate-400"
             />
+            <button id="clearSearchBtn" class="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400 hover:text-slate-600 transition-colors hidden" aria-label="Clear search">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
         </div>
 
         <!-- Table Container -->
@@ -1130,9 +1133,24 @@
             // DEBOUNCED SEARCH
             // ==========================================
             const searchInput = document.getElementById('searchInput');
-            if (searchInput) {
-                // Apply debounce to the filterTable function with a 300ms delay
-                searchInput.addEventListener('keyup', debounce(filterTable, 300));
+            const clearSearchBtn = document.getElementById('clearSearchBtn');
+
+            if (searchInput && clearSearchBtn) {
+                // Debounced filter function
+                const debouncedFilter = debounce(filterTable, 300);
+
+                searchInput.addEventListener('keyup', (e) => {
+                    // Show/hide clear button
+                    clearSearchBtn.classList.toggle('hidden', e.target.value === '');
+                    debouncedFilter();
+                });
+
+                clearSearchBtn.addEventListener('click', () => {
+                    searchInput.value = '';
+                    filterTable(); // a filter immediately
+                    clearSearchBtn.classList.add('hidden');
+                    searchInput.focus(); // Return focus to the input
+                });
             }
 
             // ==========================================

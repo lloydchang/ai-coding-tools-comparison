@@ -772,6 +772,16 @@
         ];
 
         // ==========================================
+        // PRE-PROCESS DATA FOR EFFICIENT SEARCH
+        // ==========================================
+        // Bolt ⚡: To make filtering faster, we create a single lowercase string
+        // for each tool that contains all its searchable text. This avoids
+        // looping through object keys on every keystroke in the filter function.
+        toolsData.forEach(tool => {
+            tool.searchableString = Object.values(tool).join(' ').toLowerCase();
+        });
+
+        // ==========================================
         // ESCAPE HTML UTILITY
         // ==========================================
         function escapeHTML(str) {
@@ -917,16 +927,11 @@
             const input = document.getElementById("searchInput");
             const filter = input.value.toLowerCase();
             
-            // Filter original data source
+            // Bolt ⚡: Filter original data source using the pre-processed `searchableString`
+            // for a significant performance boost. This is much faster than iterating
+            // over object keys on every filter operation.
             state.data = toolsData.filter(row => {
-                // Perf optimization: Use for...of with Object.keys to avoid iterating over prototype properties
-                // and to prevent creating an unnecessary intermediate array like Object.values() does.
-                for (const key of Object.keys(row)) {
-                    if (String(row[key]).toLowerCase().includes(filter)) {
-                        return true;
-                    }
-                }
-                return false;
+                return row.searchableString.includes(filter);
             });
             
             // Re-apply sort if exists

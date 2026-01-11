@@ -11,6 +11,7 @@
         body { font-family: 'Inter', system-ui, sans-serif; }
         /* Smooth sorting transitions */
         th { user-select: none; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
         .tooltip { visibility: hidden; opacity: 0; transition: opacity 0.2s; }
         .group:hover .tooltip { visibility: visible; opacity: 1; }
         .ai-sparkle { background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%); }
@@ -24,6 +25,7 @@
 <body class="bg-slate-50 text-slate-900 min-h-screen p-4 md:p-8 pb-32">
 
     <div class="max-w-7xl mx-auto space-y-6">
+        <div id="sort-announcement" class="sr-only" aria-live="polite"></div>
         
         <!-- Header -->
         <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
@@ -307,35 +309,35 @@
                     <thead class="bg-slate-50">
                         <tr>
                             <!-- 0: LLM Used -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'llm')" onclick="sortTable('llm')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th role="button" tabindex="0" onkeydown="handleKeySort(event, 'llm')" onclick="sortTable('llm')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">LLM Used <span id="sort-llm" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 1: Tool Name -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'name')" onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group w-32 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th role="button" tabindex="0" onkeydown="handleKeySort(event, 'name')" onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group w-32 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Tool Name <span id="sort-name" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 2: AI Independence Levels -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'aiIndependenceLevels')" onclick="sortTable('aiIndependenceLevels')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th role="button" tabindex="0" onkeydown="handleKeySort(event, 'aiIndependenceLevels')" onclick="sortTable('aiIndependenceLevels')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">AI Independence Levels <span id="sort-agentic" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 3: Target User Persona -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'persona')" onclick="sortTable('persona')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group relative focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th role="button" tabindex="0" onkeydown="handleKeySort(event, 'persona')" onclick="sortTable('persona')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group relative focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Target User Persona <span id="sort-persona" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 4: Workflow Fits -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'workflow')" onclick="sortTable('workflow')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th role="button" tabindex="0" onkeydown="handleKeySort(event, 'workflow')" onclick="sortTable('workflow')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Workflow Fits <span id="sort-workflow" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 7: Pricing -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'pricing')" onclick="sortTable('pricing')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th role="button" tabindex="0" onkeydown="handleKeySort(event, 'pricing')" onclick="sortTable('pricing')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Pricing <span id="sort-pricing" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 8: IP Indemnification -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'indemnity')" onclick="sortTable('indemnity')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th role="button" tabindex="0" onkeydown="handleKeySort(event, 'indemnity')" onclick="sortTable('indemnity')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">IP Indemnification <span id="sort-indemnity" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 9: Notes -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'notes')" onclick="sortTable('notes')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group min-w-[400px] focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th role="button" tabindex="0" onkeydown="handleKeySort(event, 'notes')" onclick="sortTable('notes')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group min-w-[400px] focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Notes <span id="sort-notes" class="sort-icon opacity-30">↕</span></div>
                             </th>
                         </tr>
@@ -897,6 +899,13 @@
                 state.sortCol = col;
                 state.sortAsc = true; // Default to Ascending on first click
             }
+
+            // Announce sort change
+            const announcement = document.getElementById('sort-announcement');
+            const colHeaderDiv = document.querySelector(`#sort-${col}`).parentElement;
+            const colName = colHeaderDiv.firstChild.nodeValue.trim();
+            const direction = state.sortAsc ? 'ascending' : 'descending';
+            announcement.textContent = `Sorted by ${colName} in ${direction} order.`;
 
             state.data.sort((a, b) => {
                 let valA = a[col];

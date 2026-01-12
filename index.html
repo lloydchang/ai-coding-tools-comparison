@@ -307,36 +307,52 @@
                     <thead class="bg-slate-50">
                         <tr>
                             <!-- 0: LLM Used -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'llm')" onclick="sortTable('llm')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
-                                <div class="flex items-center gap-1">LLM Used <span id="sort-llm" class="sort-icon opacity-30">↕</span></div>
+                            <th class="p-0 text-left text-xs font-bold text-slate-500 uppercase tracking-wider group">
+                                <button onkeydown="handleKeySort(event, 'llm')" onclick="sortTable('llm')" class="w-full h-full px-6 py-4 flex items-center gap-1 cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                                    LLM Used <span id="sort-llm" class="sort-icon opacity-30">↕</span>
+                                </button>
                             </th>
                             <!-- 1: Tool Name -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'name')" onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group w-32 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
-                                <div class="flex items-center gap-1">Tool Name <span id="sort-name" class="sort-icon opacity-30">↕</span></div>
+                            <th class="p-0 text-left text-xs font-bold text-slate-500 uppercase tracking-wider group w-32">
+                                <button onkeydown="handleKeySort(event, 'name')" onclick="sortTable('name')" class="w-full h-full px-6 py-4 flex items-center gap-1 cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                                    Tool Name <span id="sort-name" class="sort-icon opacity-30">↕</span>
+                                </button>
                             </th>
                             <!-- 2: AI Independence Levels -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'aiIndependenceLevels')" onclick="sortTable('aiIndependenceLevels')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
-                                <div class="flex items-center gap-1">AI Independence Levels <span id="sort-agentic" class="sort-icon opacity-30">↕</span></div>
+.                            <th class="p-0 text-left text-xs font-bold text-slate-500 uppercase tracking-wider group">
+                                <button onkeydown="handleKeySort(event, 'aiIndependenceLevels')" onclick="sortTable('aiIndependenceLevels')" class="w-full h-full px-6 py-4 flex items-center gap-1 cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                                    AI Independence Levels <span id="sort-agentic" class="sort-icon opacity-30">↕</span>
+                                </button>
                             </th>
                             <!-- 3: Target User Persona -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'persona')" onclick="sortTable('persona')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group relative focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
-                                <div class="flex items-center gap-1">Target User Persona <span id="sort-persona" class="sort-icon opacity-30">↕</span></div>
+                            <th class="p-0 text-left text-xs font-bold text-slate-500 uppercase tracking-wider group relative">
+                                <button onkeydown="handleKeySort(event, 'persona')" onclick="sortTable('persona')" class="w-full h-full px-6 py-4 flex items-center gap-1 cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                                    Target User Persona <span id="sort-persona" class="sort-icon opacity-30">↕</span>
+                                </button>
                             </th>
                             <!-- 4: Workflow Fits -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'workflow')" onclick="sortTable('workflow')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
-                                <div class="flex items-center gap-1">Workflow Fits <span id="sort-workflow" class="sort-icon opacity-30">↕</span></div>
+                            <th class="p-0 text-left text-xs font-bold text-slate-500 uppercase tracking-wider group">
+                                <button onkeydown="handleKeySort(event, 'workflow')" onclick="sortTable('workflow')" class="w-full h-full px-6 py-4 flex items-center gap-1 cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                                    Workflow Fits <span id="sort-workflow" class="sort-icon opacity-30">↕</span>
+                                </button>
                             </th>
                             <!-- 7: Pricing -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'pricing')" onclick="sortTable('pricing')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
-                                <div class="flex items-center gap-1">Pricing <span id="sort-pricing" class="sort-icon opacity-30">↕</span></div>
+                            <th class="p-0 text-left text-xs font-bold text-slate-500 uppercase tracking-wider group">
+                                <button onkeydown="handleKeySort(event, 'pricing')" onclick="sortTable('pricing')" class="w-full h-full px-6 py-4 flex items-center gap-1 cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                                    Pricing <span id="sort-pricing" class="sort-icon opacity-30">↕</span>
+                                </button>
                             </th>
                             <!-- 8: IP Indemnification -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'indemnity')" onclick="sortTable('indemnity')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
-                                <div class="flex items-center gap-1">IP Indemnification <span id="sort-indemnity" class="sort-icon opacity-30">↕</span></div>
+                            <th class="p-0 text-left text-xs font-bold text-slate-500 uppercase tracking-wider group">
+                                <button onkeydown="handleKeySort(event, 'indemnity')" onclick="sortTable('indemnity')" class="w-full h-full px-6 py-4 flex items-center gap-1 cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                                    IP Indemnification <span id="sort-indemnity" class="sort-icon opacity-30">↕</span>
+                                </button>
                             </th>
                             <!-- 9: Notes -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'notes')" onclick="sortTable('notes')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group min-w-[400px] focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
-                                <div class="flex items-center gap-1">Notes <span id="sort-notes" class="sort-icon opacity-30">↕</span></div>
+                            <th class="p-0 text-left text-xs font-bold text-slate-500 uppercase tracking-wider group min-w-[400px]">
+                                <button onkeydown="handleKeySort(event, 'notes')" onclick="sortTable('notes')" class="w-full h-full px-6 py-4 flex items-center gap-1 cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                                    Notes <span id="sort-notes" class="sort-icon opacity-30">↕</span>
+                                </button>
                             </th>
                         </tr>
                     </thead>

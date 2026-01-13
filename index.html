@@ -919,14 +919,11 @@
             
             // Filter original data source
             state.data = toolsData.filter(row => {
-                // Perf optimization: Use for...of with Object.keys to avoid iterating over prototype properties
-                // and to prevent creating an unnecessary intermediate array like Object.values() does.
-                for (const key of Object.keys(row)) {
-                    if (String(row[key]).toLowerCase().includes(filter)) {
-                        return true;
-                    }
-                }
-                return false;
+                // ⚡ Bolt: Performance Optimization
+                // Instead of iterating through all object properties on every filter event,
+                // we now check against a single pre-computed string. This is significantly
+                // faster as it avoids repeated property access and string conversions.
+                return row.searchableString.includes(filter);
             });
             
             // Re-apply sort if exists
@@ -1126,13 +1123,32 @@
         // Initial Render
         document.addEventListener('DOMContentLoaded', () => {
 
+            // ⚡ Bolt: Performance Optimization
+            // Pre-process the data on page load to create a single, concatenated,
+            // lower-cased searchable string for each tool. This avoids iterating over
+            // all object properties on every filter event, making the search much faster.
+            toolsData.forEach(tool => {
+                const searchableValues = [
+                    tool.llm,
+                    tool.name,
+                    tool.aiIndependenceLevels,
+                    tool.persona,
+                    tool.workflow,
+                    tool.pricing,
+                    tool.indemnity,
+                    tool.notes
+                ];
+                tool.searchableString = searchableValues.join(' ').toLowerCase();
+            });
+
             // ==========================================
             // DEBOUNCED SEARCH
             // ==========================================
             const searchInput = document.getElementById('searchInput');
             if (searchInput) {
                 // Apply debounce to the filterTable function with a 300ms delay
-                searchInput.addEventListener('keyup', debounce(filterTable, 300));
+                // Using 'input' event instead of 'keyup' for better reliability with programmatic changes (like in tests)
+                searchInput.addEventListener('input', debounce(filterTable, 300));
             }
 
             // ==========================================

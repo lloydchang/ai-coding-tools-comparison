@@ -917,27 +917,27 @@
             const input = document.getElementById("searchInput");
             const filter = input.value.toLowerCase();
             
-            // Filter original data source
-            state.data = toolsData.filter(row => {
-                // Perf optimization: Use for...of with Object.keys to avoid iterating over prototype properties
-                // and to prevent creating an unnecessary intermediate array like Object.values() does.
-                for (const key of Object.keys(row)) {
-                    if (String(row[key]).toLowerCase().includes(filter)) {
-                        return true;
-                    }
-                }
-                return false;
-            });
+            state.filter = filter;
             
-            // Re-apply sort if exists
+            // 1. Filter the original data
+            const filteredData = toolsData.filter(row => row.searchableString.includes(filter));
+
+            // 2. Sort the filtered data
             if (state.sortCol) {
-                // A bit of a shortcut: re-run the sort logic by inverting the order and calling again
-                // This ensures the filtered list is sorted correctly
-                state.sortAsc = !state.sortAsc;
-                sortTable(state.sortCol);
-            } else {
-                 renderTable();
+                filteredData.sort((a, b) => {
+                    let valA = a[state.sortCol];
+                    let valB = b[state.sortCol];
+                    if (typeof valA === 'string') valA = valA.toLowerCase();
+                    if (typeof valB === 'string') valB = valB.toLowerCase();
+                    if (valA < valB) return state.sortAsc ? -1 : 1;
+                    if (valA > valB) return state.sortAsc ? 1 : -1;
+                    return 0;
+                });
             }
+
+            // 3. Update state and render
+            state.data = filteredData;
+            renderTable();
 
         };
 
@@ -1204,6 +1204,13 @@
                 // 6. Tool Name (asc) as a final tie-breaker
                 return a.name.localeCompare(b.name);
             }
+
+            // Bolt ⚡: Performance Optimization
+            // Pre-compute a single searchable string for each tool to make filtering faster.
+            // This avoids iterating over all object properties on every single keystroke in the search input.
+            toolsData.forEach(tool => {
+                tool.searchableString = Object.values(tool).join(' ').toLowerCase();
+            });
 
             state.data.sort(multiLevelSort);
             

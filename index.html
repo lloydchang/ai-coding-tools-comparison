@@ -826,31 +826,90 @@
             return `<span class="${classes}">${escapeHTML(value)}</span>`;
         }
 
+        function createSafeLink(url, text) {
+            const a = document.createElement('a');
+            if (url) {
+                // Allow only http and https protocols to prevent javascript: links
+                if (url.startsWith('http://') || url.startsWith('https://')) {
+                    a.href = url;
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                    a.className = 'text-indigo-600 hover:underline hover:text-indigo-800 transition-colors';
+                    a.textContent = text;
+                    return a;
+                }
+            }
+            // If URL is invalid or missing, return a text node instead
+            return document.createTextNode(text);
+        }
+
         function renderTable() {
             const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = ''; // Clear existing rows
+
             if (state.data.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="8" class="text-center py-12 text-slate-500 italic">
-                            No tools match your filter.
-                        </td>
-                    </tr>
-                `;
+                const tr = document.createElement('tr');
+                const td = document.createElement('td');
+                td.colSpan = 8;
+                td.className = 'text-center py-12 text-slate-500 italic';
+                td.textContent = 'No tools match your filter.';
+                tr.appendChild(td);
+                tbody.appendChild(tr);
             } else {
-                tbody.innerHTML = state.data.map(row => `
-                    <tr class="hover:bg-indigo-50 transition-colors">
-                        <td class="px-6 py-4 text-slate-600 text-xs leading-relaxed max-w-xs">${escapeHTML(row.llm)}</td>
-                        <td class="px-6 py-4 font-semibold text-slate-900">
-                            ${row.url ? `<a href="${row.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors">${escapeHTML(row.name)}</a>` : escapeHTML(row.name)}
-                        </td>
-                        <td class="px-6 py-4">${getBadge(row.aiIndependenceLevels, 'aiIndependenceLevels')}</td>
-                        <td class="px-6 py-4">${getBadge(row.persona, 'persona')}</td>
-                        <td class="px-6 py-4 text-slate-600">${escapeHTML(row.workflow)}</td>
-                        <td class="px-6 py-4 text-slate-600">${escapeHTML(row.pricing)}</td>
-                        <td class="px-6 py-4 ${row.indemnity === 'Yes' ? 'font-bold text-green-600' : 'text-slate-600'}">${escapeHTML(row.indemnity)}</td>
-                        <td class="px-6 py-4 text-sm text-slate-500">${escapeHTML(row.notes)}</td>
-                    </tr>
-                `).join('');
+                state.data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.className = 'hover:bg-indigo-50 transition-colors';
+
+                    // LLM Used
+                    const tdLLM = document.createElement('td');
+                    tdLLM.className = 'px-6 py-4 text-slate-600 text-xs leading-relaxed max-w-xs';
+                    tdLLM.textContent = row.llm;
+                    tr.appendChild(tdLLM);
+
+                    // Tool Name (with safe link)
+                    const tdName = document.createElement('td');
+                    tdName.className = 'px-6 py-4 font-semibold text-slate-900';
+                    tdName.appendChild(createSafeLink(row.url, row.name));
+                    tr.appendChild(tdName);
+
+                    // AI Independence
+                    const tdAI = document.createElement('td');
+                    tdAI.className = 'px-6 py-4';
+                    tdAI.innerHTML = getBadge(row.aiIndependenceLevels, 'aiIndependenceLevels'); // getBadge returns safe, static HTML
+                    tr.appendChild(tdAI);
+
+                    // Persona
+                    const tdPersona = document.createElement('td');
+                    tdPersona.className = 'px-6 py-4';
+                    tdPersona.innerHTML = getBadge(row.persona, 'persona'); // getBadge returns safe, static HTML
+                    tr.appendChild(tdPersona);
+
+                    // Workflow
+                    const tdWorkflow = document.createElement('td');
+                    tdWorkflow.className = 'px-6 py-4 text-slate-600';
+                    tdWorkflow.textContent = row.workflow;
+                    tr.appendChild(tdWorkflow);
+
+                    // Pricing
+                    const tdPricing = document.createElement('td');
+                    tdPricing.className = 'px-6 py-4 text-slate-600';
+                    tdPricing.textContent = row.pricing;
+                    tr.appendChild(tdPricing);
+
+                    // Indemnity
+                    const tdIndemnity = document.createElement('td');
+                    tdIndemnity.className = `px-6 py-4 ${row.indemnity === 'Yes' ? 'font-bold text-green-600' : 'text-slate-600'}`;
+                    tdIndemnity.textContent = row.indemnity;
+                    tr.appendChild(tdIndemnity);
+
+                    // Notes
+                    const tdNotes = document.createElement('td');
+                    tdNotes.className = 'px-6 py-4 text-sm text-slate-500';
+                    tdNotes.textContent = row.notes;
+                    tr.appendChild(tdNotes);
+
+                    tbody.appendChild(tr);
+                });
             }
 
             // Update Sort Icons

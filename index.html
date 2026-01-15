@@ -771,6 +771,13 @@
             }
         ];
 
+        // Bolt ⚡: Pre-process data for faster client-side search.
+        // Create an array of lower-cased, stringified values for each object.
+        // This avoids iterating and converting on every filter event.
+        toolsData.forEach(tool => {
+            tool.searchableValues = Object.values(tool).map(String).map(v => v.toLowerCase());
+        });
+
         // ==========================================
         // ESCAPE HTML UTILITY
         // ==========================================
@@ -917,16 +924,10 @@
             const input = document.getElementById("searchInput");
             const filter = input.value.toLowerCase();
             
-            // Filter original data source
+            // Filter using the pre-processed array. Using `some` ensures the search term is matched
+            // within a single property, preserving the original logic while improving performance.
             state.data = toolsData.filter(row => {
-                // Perf optimization: Use for...of with Object.keys to avoid iterating over prototype properties
-                // and to prevent creating an unnecessary intermediate array like Object.values() does.
-                for (const key of Object.keys(row)) {
-                    if (String(row[key]).toLowerCase().includes(filter)) {
-                        return true;
-                    }
-                }
-                return false;
+                return row.searchableValues.some(value => value.includes(filter));
             });
             
             // Re-apply sort if exists
@@ -1131,8 +1132,10 @@
             // ==========================================
             const searchInput = document.getElementById('searchInput');
             if (searchInput) {
-                // Apply debounce to the filterTable function with a 300ms delay
-                searchInput.addEventListener('keyup', debounce(filterTable, 300));
+                // Bolt ⚡: Use 'input' event instead of 'keyup' for better reliability.
+                // The 'input' event triggers on any value change, making it more robust
+                // with programmatic filling (like in tests) and user actions like pasting.
+                searchInput.addEventListener('input', debounce(filterTable, 300));
             }
 
             // ==========================================

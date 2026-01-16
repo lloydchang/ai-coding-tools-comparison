@@ -634,7 +634,7 @@
 
     <script type="module">
         // ==========================================
-        // DATA STRUCTURE
+        // DATA STRUCTURE & PRE-PROCESSING
         // ==========================================
         const toolsData = [
             {
@@ -772,6 +772,20 @@
         ];
 
         // ==========================================
+        // PERFORMANCE OPTIMIZATION: PRE-PROCESSING
+        // ==========================================
+        // To make filtering faster, we pre-process the data on load.
+        // Instead of iterating through every property of every object on each keystroke,
+        // we create a single, lowercase, searchable string for each tool.
+        // The filter function can then just do a single .includes() check on this string.
+        const processedToolsData = toolsData.map(tool => {
+            // Values are joined into a single string for efficient searching.
+            const searchableString = Object.values(tool).join(' ').toLowerCase();
+            return { ...tool, searchableString };
+        });
+
+
+        // ==========================================
         // ESCAPE HTML UTILITY
         // ==========================================
         function escapeHTML(str) {
@@ -791,7 +805,7 @@
         // STATE MANAGEMENT
         // ==========================================
         let state = {
-            data: [...toolsData],
+            data: [...processedToolsData], // Use the optimized data
             sortCol: null,
             sortAsc: false,
             filter: ''
@@ -917,16 +931,9 @@
             const input = document.getElementById("searchInput");
             const filter = input.value.toLowerCase();
             
-            // Filter original data source
-            state.data = toolsData.filter(row => {
-                // Perf optimization: Use for...of with Object.keys to avoid iterating over prototype properties
-                // and to prevent creating an unnecessary intermediate array like Object.values() does.
-                for (const key of Object.keys(row)) {
-                    if (String(row[key]).toLowerCase().includes(filter)) {
-                        return true;
-                    }
-                }
-                return false;
+            // Filter original data source using the pre-processed searchable string for better performance.
+            state.data = processedToolsData.filter(row => {
+                return row.searchableString.includes(filter);
             });
             
             // Re-apply sort if exists
@@ -1132,7 +1139,8 @@
             const searchInput = document.getElementById('searchInput');
             if (searchInput) {
                 // Apply debounce to the filterTable function with a 300ms delay
-                searchInput.addEventListener('keyup', debounce(filterTable, 300));
+                // Use 'input' event instead of 'keyup' for better compatibility with programmatic changes like Playwright's .fill()
+                searchInput.addEventListener('input', debounce(filterTable, 300));
             }
 
             // ==========================================

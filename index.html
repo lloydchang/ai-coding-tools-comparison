@@ -19,6 +19,17 @@
         #benchmarkModal, #licenseModal { transition: opacity 0.2s ease-in-out; }
         #benchmarkModal.hidden, #licenseModal.hidden { opacity: 0; pointer-events: none; }
         #benchmarkModal:not(.hidden), #licenseModal:not(.hidden) { opacity: 1; pointer-events: auto; }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen p-4 md:p-8 pb-32">
@@ -299,6 +310,9 @@
                 class="w-full p-4 pl-12 bg-white border border-slate-300 rounded-xl shadow-sm focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 outline-none transition-all text-slate-800 placeholder-slate-400"
             />
         </div>
+
+        <!-- ARIA Live Region for Screen Reader Announcements -->
+        <div id="sort-announcement" class="sr-only" aria-live="polite"></div>
 
         <!-- Table Container -->
         <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
@@ -909,6 +923,24 @@
                 if (valA > valB) return state.sortAsc ? 1 : -1;
                 return 0;
             });
+
+            // Announce sort change for screen readers
+            const announcementEl = document.getElementById('sort-announcement');
+            if (announcementEl) {
+                const columnNames = {
+                    llm: 'LLM Used',
+                    name: 'Tool Name',
+                    aiIndependenceLevels: 'AI Independence Levels',
+                    persona: 'Target User Persona',
+                    workflow: 'Workflow Fits',
+                    pricing: 'Pricing',
+                    indemnity: 'IP Indemnification',
+                    notes: 'Notes'
+                };
+                const direction = state.sortAsc ? 'ascending' : 'descending';
+                const columnName = columnNames[col] || col;
+                announcementEl.textContent = `Sorted by ${columnName}, ${direction}`;
+            }
 
             renderTable();
         };

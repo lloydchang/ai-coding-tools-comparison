@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://cdn.jsdelivr.net/npm/chart.js; style-src 'self' 'unsafe-inline';">
     <title>AI Coding Tools Comparison</title>
     <meta name="description" content="A searchable, sortable comparison table of AI coding tools." />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -632,10 +633,9 @@
         </div>
     </div>
 
-    <script type="module">
-        // ==========================================
-        // DATA STRUCTURE
-        // ==========================================
+    <script type="module" src="app.js"></script>
+</body>
+</html>
         const toolsData = [
             {
                 name: "Antigravity",

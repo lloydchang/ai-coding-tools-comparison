@@ -771,6 +771,12 @@
             }
         ];
 
+        // Performance Optimization: Pre-process data for faster filtering
+        // Create a single searchable string for each tool to avoid iterating over object keys on every filter operation.
+        toolsData.forEach(tool => {
+            tool.searchableContent = Object.values(tool).join(' ').toLowerCase();
+        });
+
         // ==========================================
         // ESCAPE HTML UTILITY
         // ==========================================
@@ -917,16 +923,9 @@
             const input = document.getElementById("searchInput");
             const filter = input.value.toLowerCase();
             
-            // Filter original data source
+            // Filter original data source using the pre-processed searchable content
             state.data = toolsData.filter(row => {
-                // Perf optimization: Use for...of with Object.keys to avoid iterating over prototype properties
-                // and to prevent creating an unnecessary intermediate array like Object.values() does.
-                for (const key of Object.keys(row)) {
-                    if (String(row[key]).toLowerCase().includes(filter)) {
-                        return true;
-                    }
-                }
-                return false;
+                return row.searchableContent.includes(filter);
             });
             
             // Re-apply sort if exists

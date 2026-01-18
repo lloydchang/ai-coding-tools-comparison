@@ -1,0 +1,12 @@
+
+body { font-family: 'Inter', system-ui, sans-serif; }
+/* Smooth sorting transitions */
+th { user-select: none; }
+.tooltip { visibility: hidden; opacity: 0; transition: opacity 0.2s; }
+.group:hover .tooltip { visibility: visible; opacity: 1; }
+.ai-sparkle { background: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%); }
+
+/* Modal Transitions */
+#benchmarkModal, #licenseModal { transition: opacity 0.2s ease-in-out; }
+#benchmarkModal.hidden, #licenseModal.hidden { opacity: 0; pointer-events: none; }
+#benchmarkModal:not(.hidden), #licenseModal:not(.hidden) { opacity: 1; pointer-events: auto; }

@@ -19,9 +19,22 @@
         #benchmarkModal, #licenseModal { transition: opacity 0.2s ease-in-out; }
         #benchmarkModal.hidden, #licenseModal.hidden { opacity: 0; pointer-events: none; }
         #benchmarkModal:not(.hidden), #licenseModal:not(.hidden) { opacity: 1; pointer-events: auto; }
+        /* Visually-hidden class for screen reader accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen p-4 md:p-8 pb-32">
+    <div id="sr-announcement" class="sr-only" aria-live="polite"></div>
 
     <div class="max-w-7xl mx-auto space-y-6">
         
@@ -896,6 +909,24 @@
             } else {
                 state.sortCol = col;
                 state.sortAsc = true; // Default to Ascending on first click
+            }
+
+            // Accessibility: Announce sort change to screen readers
+            const colNameMap = {
+                llm: "LLM Used",
+                name: "Tool Name",
+                aiIndependenceLevels: "AI Independence Levels",
+                persona: "Target User Persona",
+                workflow: "Workflow Fits",
+                pricing: "Pricing",
+                indemnity: "IP Indemnification",
+                notes: "Notes"
+            };
+            const sortDirection = state.sortAsc ? "ascending" : "descending";
+            const announcementEl = document.getElementById('sr-announcement');
+            if (announcementEl) {
+                const colName = colNameMap[col] || col;
+                announcementEl.textContent = `Sorted by ${colName}, ${sortDirection}.`;
             }
 
             state.data.sort((a, b) => {

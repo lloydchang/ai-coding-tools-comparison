@@ -771,6 +771,14 @@
             }
         ];
 
+        // ⚡ Bolt optimization: Pre-process the data for faster client-side search.
+        // Instead of iterating through every object key for every search input (O(n*m)),
+        // we create a single searchable string upfront. The filter operation then becomes
+        // a much faster O(n) check against this pre-compiled string.
+        toolsData.forEach(tool => {
+            tool.searchableString = Object.values(tool).join(' ').toLowerCase();
+        });
+
         // ==========================================
         // ESCAPE HTML UTILITY
         // ==========================================
@@ -917,16 +925,9 @@
             const input = document.getElementById("searchInput");
             const filter = input.value.toLowerCase();
             
-            // Filter original data source
+            // Filter original data source using the pre-processed searchable string for performance.
             state.data = toolsData.filter(row => {
-                // Perf optimization: Use for...of with Object.keys to avoid iterating over prototype properties
-                // and to prevent creating an unnecessary intermediate array like Object.values() does.
-                for (const key of Object.keys(row)) {
-                    if (String(row[key]).toLowerCase().includes(filter)) {
-                        return true;
-                    }
-                }
-                return false;
+                return row.searchableString.includes(filter);
             });
             
             // Re-apply sort if exists
@@ -1131,8 +1132,9 @@
             // ==========================================
             const searchInput = document.getElementById('searchInput');
             if (searchInput) {
-                // Apply debounce to the filterTable function with a 300ms delay
-                searchInput.addEventListener('keyup', debounce(filterTable, 300));
+                // Use the 'input' event as it's more reliable than 'keyup' for capturing all value changes.
+                // Playwright's .fill() method, for example, does not reliably trigger 'keyup'.
+                searchInput.addEventListener('input', debounce(filterTable, 300));
             }
 
             // ==========================================

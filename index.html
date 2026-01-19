@@ -772,6 +772,15 @@
         ];
 
         // ==========================================
+        // DATA PRE-PROCESSING FOR PERFORMANCE
+        // ==========================================
+        // ⚡ Bolt: Create a single, lowercased, searchable string for each tool to make filtering faster.
+        // This is more efficient than iterating through all object properties on every filter operation.
+        toolsData.forEach(tool => {
+            tool.searchableString = Object.values(tool).join(' ').toLowerCase();
+        });
+
+        // ==========================================
         // ESCAPE HTML UTILITY
         // ==========================================
         function escapeHTML(str) {
@@ -918,16 +927,8 @@
             const filter = input.value.toLowerCase();
             
             // Filter original data source
-            state.data = toolsData.filter(row => {
-                // Perf optimization: Use for...of with Object.keys to avoid iterating over prototype properties
-                // and to prevent creating an unnecessary intermediate array like Object.values() does.
-                for (const key of Object.keys(row)) {
-                    if (String(row[key]).toLowerCase().includes(filter)) {
-                        return true;
-                    }
-                }
-                return false;
-            });
+            // ⚡ Bolt: Use the pre-processed searchableString for a much faster filter operation.
+            state.data = toolsData.filter(row => row.searchableString.includes(filter));
             
             // Re-apply sort if exists
             if (state.sortCol) {
@@ -1131,8 +1132,9 @@
             // ==========================================
             const searchInput = document.getElementById('searchInput');
             if (searchInput) {
-                // Apply debounce to the filterTable function with a 300ms delay
-                searchInput.addEventListener('keyup', debounce(filterTable, 300));
+                // ⚡ Bolt: Use 'input' event for better responsiveness than 'keyup'.
+                // The user gets instant feedback as they type or paste.
+                searchInput.addEventListener('input', debounce(filterTable, 300));
             }
 
             // ==========================================

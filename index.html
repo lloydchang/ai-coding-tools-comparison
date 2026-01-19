@@ -788,6 +788,16 @@
         }
 
         // ==========================================
+        // SAFE LINK UTILITY
+        // ==========================================
+        function createSafeLink(url) {
+            if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
+                return escapeHTML(url);
+            }
+            return '#'; // Return a safe, non-functional link if URL is invalid/malicious
+        }
+
+        // ==========================================
         // STATE MANAGEMENT
         // ==========================================
         let state = {
@@ -841,7 +851,7 @@
                     <tr class="hover:bg-indigo-50 transition-colors">
                         <td class="px-6 py-4 text-slate-600 text-xs leading-relaxed max-w-xs">${escapeHTML(row.llm)}</td>
                         <td class="px-6 py-4 font-semibold text-slate-900">
-                            ${row.url ? `<a href="${row.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors">${escapeHTML(row.name)}</a>` : escapeHTML(row.name)}
+                            ${row.url ? `<a href="${createSafeLink(row.url)}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors">${escapeHTML(row.name)}</a>` : escapeHTML(row.name)}
                         </td>
                         <td class="px-6 py-4">${getBadge(row.aiIndependenceLevels, 'aiIndependenceLevels')}</td>
                         <td class="px-6 py-4">${getBadge(row.persona, 'persona')}</td>

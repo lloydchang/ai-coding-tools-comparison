@@ -19,6 +19,18 @@
         #benchmarkModal, #licenseModal { transition: opacity 0.2s ease-in-out; }
         #benchmarkModal.hidden, #licenseModal.hidden { opacity: 0; pointer-events: none; }
         #benchmarkModal:not(.hidden), #licenseModal:not(.hidden) { opacity: 1; pointer-events: auto; }
+        /* For screen reader announcements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 min-h-screen p-4 md:p-8 pb-32">
@@ -287,6 +299,9 @@
             </div>
         </div>
 
+        <!-- Visually hidden container for screen reader announcements -->
+        <div id="sort-announcement" class="sr-only" aria-live="polite"></div>
+
         <!-- Search -->
         <div class="relative group">
             <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
@@ -307,35 +322,35 @@
                     <thead class="bg-slate-50">
                         <tr>
                             <!-- 0: LLM Used -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'llm')" onclick="sortTable('llm')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th id="th-llm" tabindex="0" onkeydown="handleKeySort(event, 'llm')" onclick="sortTable('llm')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">LLM Used <span id="sort-llm" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 1: Tool Name -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'name')" onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group w-32 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th id="th-name" tabindex="0" onkeydown="handleKeySort(event, 'name')" onclick="sortTable('name')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group w-32 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Tool Name <span id="sort-name" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 2: AI Independence Levels -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'aiIndependenceLevels')" onclick="sortTable('aiIndependenceLevels')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th id="th-aiIndependenceLevels" tabindex="0" onkeydown="handleKeySort(event, 'aiIndependenceLevels')" onclick="sortTable('aiIndependenceLevels')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">AI Independence Levels <span id="sort-agentic" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 3: Target User Persona -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'persona')" onclick="sortTable('persona')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group relative focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th id="th-persona" tabindex="0" onkeydown="handleKeySort(event, 'persona')" onclick="sortTable('persona')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group relative focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Target User Persona <span id="sort-persona" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 4: Workflow Fits -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'workflow')" onclick="sortTable('workflow')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th id="th-workflow" tabindex="0" onkeydown="handleKeySort(event, 'workflow')" onclick="sortTable('workflow')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Workflow Fits <span id="sort-workflow" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 7: Pricing -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'pricing')" onclick="sortTable('pricing')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th id="th-pricing" tabindex="0" onkeydown="handleKeySort(event, 'pricing')" onclick="sortTable('pricing')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Pricing <span id="sort-pricing" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 8: IP Indemnification -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'indemnity')" onclick="sortTable('indemnity')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th id="th-indemnity" tabindex="0" onkeydown="handleKeySort(event, 'indemnity')" onclick="sortTable('indemnity')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">IP Indemnification <span id="sort-indemnity" class="sort-icon opacity-30">↕</span></div>
                             </th>
                             <!-- 9: Notes -->
-                            <th tabindex="0" onkeydown="handleKeySort(event, 'notes')" onclick="sortTable('notes')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group min-w-[400px] focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                            <th id="th-notes" tabindex="0" onkeydown="handleKeySort(event, 'notes')" onclick="sortTable('notes')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group min-w-[400px] focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Notes <span id="sort-notes" class="sort-icon opacity-30">↕</span></div>
                             </th>
                         </tr>
@@ -909,6 +924,32 @@
                 if (valA > valB) return state.sortAsc ? 1 : -1;
                 return 0;
             });
+
+            // ARIA sort attributes
+            document.querySelectorAll('#toolsTable thead th').forEach(th => {
+                th.removeAttribute('aria-sort');
+            });
+            const sortedTh = document.getElementById(`th-${col}`);
+            if (sortedTh) {
+                sortedTh.setAttribute('aria-sort', state.sortAsc ? 'ascending' : 'descending');
+
+                // Announce sort change to screen readers
+                const colNameMap = {
+                    llm: 'LLM Used',
+                    name: 'Tool Name',
+                    aiIndependenceLevels: 'AI Independence Levels',
+                    persona: 'Target User Persona',
+                    workflow: 'Workflow Fits',
+                    pricing: 'Pricing',
+                    indemnity: 'IP Indemnification',
+                    notes: 'Notes'
+                };
+                const announcementEl = document.getElementById('sort-announcement');
+                if (announcementEl) {
+                    const sortDirection = state.sortAsc ? 'ascending' : 'descending';
+                    announcementEl.textContent = `Sorted by ${colNameMap[col] || col}, ${sortDirection}.`;
+                }
+            }
 
             renderTable();
         };

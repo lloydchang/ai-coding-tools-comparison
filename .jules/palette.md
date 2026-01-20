@@ -1,0 +1,3 @@
+## 2024-07-15 - Accessible Table Sorting Pattern
+**Learning:** For dynamic, client-side sorted tables, simply adding `aria-sort` to the headers is insufficient for a good screen reader experience. The state change isn't always announced. The most robust pattern is to combine `aria-sort` on the `<th>` element with a visually hidden `aria-live="polite"` region that explicitly announces the sort action (e.g., "Sorted by Name, ascending").
+**Action:** When implementing table sorting, always include both `aria-sort` on the header and a dedicated `aria-live` announcement region. Use a map to provide clean, human-readable column names in the announcement.

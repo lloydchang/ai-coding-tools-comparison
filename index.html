@@ -790,8 +790,14 @@
         // ==========================================
         // STATE MANAGEMENT
         // ==========================================
+        // Perf Optimization: Pre-process data to create a concatenated string for faster filtering.
+        const processedToolsData = toolsData.map(tool => ({
+            ...tool,
+            searchableString: Object.values(tool).join(' ').toLowerCase()
+        }));
+
         let state = {
-            data: [...toolsData],
+            data: [...processedToolsData],
             sortCol: null,
             sortAsc: false,
             filter: ''
@@ -918,15 +924,10 @@
             const filter = input.value.toLowerCase();
             
             // Filter original data source
-            state.data = toolsData.filter(row => {
-                // Perf optimization: Use for...of with Object.keys to avoid iterating over prototype properties
-                // and to prevent creating an unnecessary intermediate array like Object.values() does.
-                for (const key of Object.keys(row)) {
-                    if (String(row[key]).toLowerCase().includes(filter)) {
-                        return true;
-                    }
-                }
-                return false;
+            state.data = processedToolsData.filter(row => {
+                // Perf optimization: Instead of iterating over every key, check against the pre-computed searchable string.
+                // This is significantly faster as it's a single string search vs. multiple.
+                return row.searchableString.includes(filter);
             });
             
             // Re-apply sort if exists
@@ -1132,7 +1133,7 @@
             const searchInput = document.getElementById('searchInput');
             if (searchInput) {
                 // Apply debounce to the filterTable function with a 300ms delay
-                searchInput.addEventListener('keyup', debounce(filterTable, 300));
+                searchInput.addEventListener('input', debounce(filterTable, 300));
             }
 
             // ==========================================

@@ -772,22 +772,6 @@
         ];
 
         // ==========================================
-        // ESCAPE HTML UTILITY
-        // ==========================================
-        function escapeHTML(str) {
-            if (typeof str !== 'string') return str;
-            return str.replace(/[&<>"']/g, function(m) {
-                return {
-                    '&': '&amp;',
-                    '<': '&lt;',
-                    '>': '&gt;',
-                    '"': '&quot;',
-                    "'": '&#39;'
-                }[m];
-            });
-        }
-
-        // ==========================================
         // STATE MANAGEMENT
         // ==========================================
         let state = {
@@ -800,10 +784,11 @@
         // ==========================================
         // RENDERING
         // ==========================================
-        function getBadge(value, type) {
+        function createBadge(value, type) {
             const v = value.toLowerCase();
+            const span = document.createElement('span');
             let classes = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium whitespace-nowrap ";
-            
+
             if (type === 'aiIndependenceLevels') {
                 if (v.includes('agency')) classes += "bg-indigo-100 text-indigo-800 border border-indigo-200";
                 else if (v.includes('autonomy')) classes += "bg-purple-100 text-purple-800 border border-purple-200";
@@ -811,57 +796,105 @@
                 else if (v.includes('assistance')) classes += "bg-slate-100 text-slate-700 border border-slate-200";
                 else classes += "bg-slate-100 text-slate-800";
             } else if (type === 'persona') {
-                // Mapped to Persona
-                // D. Early Technical Co-Founder (Indigo)
                 if (v.includes('early technical co-founder')) classes += "bg-indigo-100 text-indigo-800 border border-indigo-200";
-                // C. Product Engineer (Purple)
                 else if (v.includes('product engineer')) classes += "bg-purple-100 text-purple-800 border border-purple-200";
-                // B. Core Developer (Blue)
                 else if (v.includes('core developer')) classes += "bg-blue-100 text-blue-800 border border-blue-200";
-                // A. Technical Product Manager (Slate)
                 else if (v.includes('technical product manager') || v.includes('product manager')) classes += "bg-slate-100 text-slate-700 border border-slate-200";
-                
                 else classes += "bg-slate-50 text-slate-600 border border-slate-100";
             }
-            return `<span class="${classes}">${escapeHTML(value)}</span>`;
+            span.className = classes;
+            span.textContent = value;
+            return span;
         }
 
         function renderTable() {
             const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = ''; // Clear existing rows
+
             if (state.data.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="8" class="text-center py-12 text-slate-500 italic">
-                            No tools match your filter.
-                        </td>
-                    </tr>
-                `;
+                const tr = document.createElement('tr');
+                const td = document.createElement('td');
+                td.colSpan = 8;
+                td.className = 'text-center py-12 text-slate-500 italic';
+                td.textContent = 'No tools match your filter.';
+                tr.appendChild(td);
+                tbody.appendChild(tr);
             } else {
-                tbody.innerHTML = state.data.map(row => `
-                    <tr class="hover:bg-indigo-50 transition-colors">
-                        <td class="px-6 py-4 text-slate-600 text-xs leading-relaxed max-w-xs">${escapeHTML(row.llm)}</td>
-                        <td class="px-6 py-4 font-semibold text-slate-900">
-                            ${row.url ? `<a href="${row.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:underline hover:text-indigo-800 transition-colors">${escapeHTML(row.name)}</a>` : escapeHTML(row.name)}
-                        </td>
-                        <td class="px-6 py-4">${getBadge(row.aiIndependenceLevels, 'aiIndependenceLevels')}</td>
-                        <td class="px-6 py-4">${getBadge(row.persona, 'persona')}</td>
-                        <td class="px-6 py-4 text-slate-600">${escapeHTML(row.workflow)}</td>
-                        <td class="px-6 py-4 text-slate-600">${escapeHTML(row.pricing)}</td>
-                        <td class="px-6 py-4 ${row.indemnity === 'Yes' ? 'font-bold text-green-600' : 'text-slate-600'}">${escapeHTML(row.indemnity)}</td>
-                        <td class="px-6 py-4 text-sm text-slate-500">${escapeHTML(row.notes)}</td>
-                    </tr>
-                `).join('');
+                state.data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.className = 'hover:bg-indigo-50 transition-colors';
+
+                    // LLM Used
+                    let td = document.createElement('td');
+                    td.className = 'px-6 py-4 text-slate-600 text-xs leading-relaxed max-w-xs';
+                    td.textContent = row.llm;
+                    tr.appendChild(td);
+
+                    // Tool Name
+                    td = document.createElement('td');
+                    td.className = 'px-6 py-4 font-semibold text-slate-900';
+                    if (row.url) {
+                        const a = document.createElement('a');
+                        a.href = row.url;
+                        a.target = '_blank';
+                        a.rel = 'noopener noreferrer';
+                        a.className = 'text-indigo-600 hover:underline hover:text-indigo-800 transition-colors';
+                        a.textContent = row.name;
+                        td.appendChild(a);
+                    } else {
+                        td.textContent = row.name;
+                    }
+                    tr.appendChild(td);
+
+                    // AI Independence Levels
+                    td = document.createElement('td');
+                    td.className = 'px-6 py-4';
+                    td.appendChild(createBadge(row.aiIndependenceLevels, 'aiIndependenceLevels'));
+                    tr.appendChild(td);
+
+                    // Target User Persona
+                    td = document.createElement('td');
+                    td.className = 'px-6 py-4';
+                    td.appendChild(createBadge(row.persona, 'persona'));
+                    tr.appendChild(td);
+
+                    // Workflow Fits
+                    td = document.createElement('td');
+                    td.className = 'px-6 py-4 text-slate-600';
+                    td.textContent = row.workflow;
+                    tr.appendChild(td);
+
+                    // Pricing
+                    td = document.createElement('td');
+                    td.className = 'px-6 py-4 text-slate-600';
+                    td.textContent = row.pricing;
+                    tr.appendChild(td);
+
+                    // IP Indemnification
+                    td = document.createElement('td');
+                    td.className = `px-6 py-4 ${row.indemnity === 'Yes' ? 'font-bold text-green-600' : 'text-slate-600'}`;
+                    td.textContent = row.indemnity;
+                    tr.appendChild(td);
+
+                    // Notes
+                    td = document.createElement('td');
+                    td.className = 'px-6 py-4 text-sm text-slate-500';
+                    td.textContent = row.notes;
+                    tr.appendChild(td);
+
+                    tbody.appendChild(tr);
+                });
             }
 
             // Update Sort Icons
             document.querySelectorAll('.sort-icon').forEach(icon => {
-                icon.innerHTML = '↕';
+                icon.textContent = '↕';
                 icon.classList.add('opacity-30');
             });
             if (state.sortCol) {
                 const icon = document.getElementById(`sort-${state.sortCol}`);
                 if (icon) {
-                    icon.innerHTML = state.sortAsc ? '↑' : '↓';
+                    icon.textContent = state.sortAsc ? '↑' : '↓';
                     icon.classList.remove('opacity-30');
                 }
             }

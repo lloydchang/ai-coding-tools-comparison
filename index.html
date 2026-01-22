@@ -919,14 +919,10 @@
             
             // Filter original data source
             state.data = toolsData.filter(row => {
-                // Perf optimization: Use for...of with Object.keys to avoid iterating over prototype properties
-                // and to prevent creating an unnecessary intermediate array like Object.values() does.
-                for (const key of Object.keys(row)) {
-                    if (String(row[key]).toLowerCase().includes(filter)) {
-                        return true;
-                    }
-                }
-                return false;
+                // Bolt ⚡: Performance Optimization
+                // Check against the pre-processed searchableString for faster filtering.
+                // This is much faster than iterating over object keys for every filter operation.
+                return row.searchableString.includes(filter);
             });
             
             // Re-apply sort if exists
@@ -938,7 +934,6 @@
             } else {
                  renderTable();
             }
-
         };
 
         // ==========================================
@@ -1125,6 +1120,13 @@
 
         // Initial Render
         document.addEventListener('DOMContentLoaded', () => {
+            // Bolt ⚡: Performance Optimization
+            // Pre-process data to create a single searchable string for each tool.
+            // This avoids iterating over every object property on every filter event,
+            // making the search significantly faster.
+            toolsData.forEach(tool => {
+                tool.searchableString = Object.values(tool).join(' ').toLowerCase();
+            });
 
             // ==========================================
             // DEBOUNCED SEARCH

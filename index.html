@@ -326,6 +326,10 @@
                             <th tabindex="0" onkeydown="handleKeySort(event, 'workflow')" onclick="sortTable('workflow')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Workflow Fits <span id="sort-workflow" class="sort-icon opacity-30">↕</span></div>
                             </th>
+                            <!-- 5: Concurrency -->
+                            <th tabindex="0" onkeydown="handleKeySort(event, 'concurrency')" onclick="sortTable('concurrency')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
+                                <div class="flex items-center gap-1">Concurrency <span id="sort-concurrency" class="sort-icon opacity-30">↕</span></div>
+                            </th>
                             <!-- 7: Pricing -->
                             <th tabindex="0" onkeydown="handleKeySort(event, 'pricing')" onclick="sortTable('pricing')" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider cursor-pointer hover:bg-slate-100 hover:text-indigo-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
                                 <div class="flex items-center gap-1">Pricing <span id="sort-pricing" class="sort-icon opacity-30">↕</span></div>
@@ -644,6 +648,7 @@
                 workflow: "Agentic IDE",
                 aiIndependenceLevels: "4. Agency",
                 llm: "Claude Opus 4.5, Gemini 3",
+                concurrency: "5",
                 pricing: "Free / $20 / $250",
                 indemnity: "No",
                 notes: "Partner architecture; provides maximum developer control by executing tool commands only on explicit prompts. No background watcher daemon."
@@ -655,6 +660,7 @@
                 workflow: "CLI, IDE Integration",
                 aiIndependenceLevels: "4. Agency",
                 llm: "Claude Opus 4.5",
+                concurrency: "",
                 pricing: "$20 / Usage Based",
                 indemnity: "No",
                 notes: "Multi-platform agentic coding assistant (CLI, IDE, web, mobile) powered by Claude Opus 4.5. Reads entire codebases with full project context awareness. Autonomously edits files, executes commands, manages git workflows, and implements solutions end-to-end. Suited for complex architectural reasoning and hands-on development tasks in a collaborative, real-time workflow."
@@ -666,6 +672,7 @@
                 workflow: "CLI, IDE Integration",
                 aiIndependenceLevels: "4. Agency",
                 llm: "GPT-5.2",
+                concurrency: "",
                 pricing: "$20 / Usage Based",
                 indemnity: "No",
                 notes: "Cloud‑native coding agent powered by GPT-5.2. Codex can run multiple tasks concurrently in isolated cloud sandbox environments, with each task preloaded with your codebase and dependencies. It is accessible via cloud, local CLI, and IDE interfaces (including VS Code, Cursor, and others) so developers can pair with Codex locally or delegate background work to the cloud. Codex compacts context to manage long sessions, preserving relevant state as it approaches context limits to support sustained and complex coding tasks. The system’s ability to run independent cloud tasks in parallel across workflows is a core aspect of its design for broad‑scope software development."
@@ -677,6 +684,7 @@
                 workflow: "Agentic IDE",
                 aiIndependenceLevels: "3. Autonomy",
                 llm: "Claude Opus 4.5, Gemini 3, GPT-5.2, Composer-1, Local Ollama, Remote BYOK",
+                concurrency: "1",
                 pricing: "Free / $20 / $40 / $60 / $200 / Usage Based",
                 indemnity: "No",
                 notes: "Focuses on speed & precision with a side-panel chat and Composer for multi-file edits. Deep Git integration, acting like a GitHub teammate to auto-generate commits & reviews."
@@ -688,6 +696,7 @@
                 workflow: "Agentic IDE",
                 aiIndependenceLevels: "3. Autonomy",
                 llm: "Claude Opus 4 BYOK, Gemini 2.5, GPT-5.2, SWE-1.5",
+                concurrency: "20",
                 pricing: "Free / $15 / $30 / Usage Based",
                 indemnity: "No",
                 notes: "Cascade agent with dense reasoning over implicit user intent. Real-time flow awareness tracking actions, edits, commands, conversation history, clipboard, and terminal activity. Built-in browser integration with multi-file context and project-wide understanding."
@@ -699,6 +708,7 @@
                 workflow: "Task-focused CLI automation",
                 aiIndependenceLevels: "3. Autonomy",
                 llm: "Local Ollama, Remote BYOK",
+                concurrency: "",
                 pricing: "Usage Based",
                 indemnity: "No",
                 notes: "Autonomous task completion & CLI productivity."
@@ -710,6 +720,7 @@
                 workflow: "IDE Integration",
                 aiIndependenceLevels: "3. Autonomy",
                 llm: "Claude Opus 4.5, Gemini 3, GPT-5.2, Local Ollama, Remote BYOK",
+                concurrency: "",
                 pricing: "Free / $10 / Usage Based",
                 indemnity: "Yes",
                 notes: "Advanced code generation and refactoring. Can autonomously handle small to medium tasks like implementing functions or fixing bugs based on user prompts."
@@ -721,6 +732,7 @@
                 workflow: "GitHub Agent",
                 aiIndependenceLevels: "3. Autonomy",
                 llm: "Gemini 2.5, 3",
+                concurrency: "3",
                 pricing: "Free / $20 / $250",
                 indemnity: "No",
                 notes: "Google’s AI code agent that integrates directly into GitHub. It acts as a teammate, autonomously handling code reviews, migrations, and complex refactoring tasks via Pull Requests."
@@ -732,6 +744,7 @@
                 workflow: "Task-focused IDE automation",
                 aiIndependenceLevels: "3. Autonomy",
                 llm: "Local Ollama, Remote BYOK",
+                concurrency: "",
                 pricing: "Usage Based",
                 indemnity: "No",
                 notes: "Specialized Autonomy: Uses multi-personality agents for role-based automation."
@@ -743,6 +756,7 @@
                 workflow: "Task-focused IDE automation",
                 aiIndependenceLevels: "2. Augmentation",
                 llm: "Local Ollama, Remote BYOK",
+                concurrency: "",
                 pricing: "Usage Based",
                 indemnity: "No",
                 notes: "Supervised Action: Requires explicit permission for every command/change."
@@ -754,6 +768,7 @@
                 workflow: "Task-focused IDE automation",
                 aiIndependenceLevels: "2. Augmentation",
                 llm: "Local Ollama, Remote BYOK",
+                concurrency: "",
                 pricing: "Usage Based",
                 indemnity: "No",
                 notes: "Orchestrated Guidance: Breaks tasks into sub-steps with a visible to-do list."
@@ -765,6 +780,7 @@
                 workflow: "Web IDE",
                 aiIndependenceLevels: "1. Assistance",
                 llm: "Gemini 3",
+                concurrency: "1",
                 pricing: "Free",
                 indemnity: "No",
                 notes: "Acts as a senior frontend engineer with UI/UX expertise. Creatively interprets meta-commands like commit as chat prompts to commit to building new features."
@@ -831,7 +847,7 @@
             if (state.data.length === 0) {
                 tbody.innerHTML = `
                     <tr>
-                        <td colspan="8" class="text-center py-12 text-slate-500 italic">
+                        <td colspan="9" class="text-center py-12 text-slate-500 italic">
                             No tools match your filter.
                         </td>
                     </tr>
@@ -846,6 +862,7 @@
                         <td class="px-6 py-4">${getBadge(row.aiIndependenceLevels, 'aiIndependenceLevels')}</td>
                         <td class="px-6 py-4">${getBadge(row.persona, 'persona')}</td>
                         <td class="px-6 py-4 text-slate-600">${escapeHTML(row.workflow)}</td>
+                        <td class="px-6 py-4 text-slate-600">${escapeHTML(row.concurrency || '-')}</td>
                         <td class="px-6 py-4 text-slate-600">${escapeHTML(row.pricing)}</td>
                         <td class="px-6 py-4 ${row.indemnity === 'Yes' ? 'font-bold text-green-600' : 'text-slate-600'}">${escapeHTML(row.indemnity)}</td>
                         <td class="px-6 py-4 text-sm text-slate-500">${escapeHTML(row.notes)}</td>

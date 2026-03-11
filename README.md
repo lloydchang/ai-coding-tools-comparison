@@ -22,7 +22,7 @@ The right tool — or combination of tools — depends on how your mind naturall
 
 > *Snapshot as of March 2026. Tools, features, and conventions are evolving rapidly and may have changed since publication.*
 
-> *This is a companion piece to the [AI Coding Tools Comparison](https://lloydchang.github.io/ai-coding-tools-comparison/) interactive table, which compares tools by AI Independence Levels, Target User Persona, workflow fit, concurrency, pricing, and IP indemnification. The two documents use different but complementary lenses — the table answers what level of AI independence a tool operates at and who it is for; this document answers what architectural pattern it represents and how the ecosystem fits together strategically.*
+> *This is a companion piece to the **[AI Coding Tools Comparison](https://lloydchang.github.io/ai-coding-tools-comparison/)** interactive table, which compares tools by AI Independence Levels, Target User Persona, workflow fit, concurrency, pricing, and IP indemnification. The two documents use different but complementary lenses — the table answers what level of AI independence a tool operates at and who it is for; this document answers what architectural pattern it represents and how the ecosystem fits together strategically.*
 
 ---
 

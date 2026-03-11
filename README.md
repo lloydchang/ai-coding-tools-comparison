@@ -12,7 +12,7 @@ The right tool — or combination of tools — depends on how your mind naturall
 
 **Enjoyment is a multiplier.** A tool you find genuinely engaging will outperform a tool you tolerate. Flow state is not a soft metric.
 
-**Adaptability has a cost.** This ecosystem moves fast — Cursor Rules became legacy and was replaced by AGENTS.md in a single release cycle. Staying current requires continuous attention. That is energizing for some and exhausting for others. Know which one you are.
+**Adaptability has a cost.** This ecosystem moves fast — Cursor Rules became legacy and was replaced by [Agent Skills](https://agentskills.io/) standard. Staying current requires continuous attention. That is energizing for some and exhausting for others. Know which one you are.
 
 **The architectural patterns in this document describe differences, not a ranking.** What fits depends entirely on everything above.
 

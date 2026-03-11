@@ -1,4 +1,4 @@
-## Before You Read: What Actually Determines Your Stack
+## Before You Read: What Actually Determines Your Toolbox
 
 > **These are tools in a toolbox — and tools can be combined.** No single tool is best, and no combination is universally right.
 
@@ -222,7 +222,7 @@ Neither is superior. They reflect different working styles and different levels 
 ### Pattern B — Supervised Autonomy Architecture
 *Deep reasoning paired with selective delegation*
 
-**Claude Code + Zed + Antigravity** — three-layer stack: terminal reasoning depth, visual supervision via Zed, autonomous IDE for broader orchestration. Orchestrator-style output without fully leaving the reasoning loop.
+**Claude Code + Zed + Antigravity** — three-layer toolbox: terminal reasoning depth, visual supervision via Zed, autonomous IDE for broader orchestration. Orchestrator-style output without fully leaving the reasoning loop.
 
 **Claude Code + Windsurf Cascade** — reasoning depth paired with autonomous delegation. Claude Code for complex thinking; Cascade for parallel execution of well-defined work.
 

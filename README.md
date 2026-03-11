@@ -180,7 +180,7 @@ Copilot  Cline        Cursor     Claude Code   Codex App        Devin          A
 
 ---
 
-## The Real Strategic Fight
+## Strategic Fights
 
 Today's visible fight is **Cursor vs. GitHub**: who owns the developer workflow? GitHub controls the repo, CI/CD, pull requests, and deployment — Copilot expands AI outward from that system of record. Cursor and Windsurf bet that the editor becomes the center of gravity instead.
 

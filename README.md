@@ -158,7 +158,7 @@ Copilot  Cline        Cursor     Claude Code   Codex App        Devin          A
 | Cursor / Windsurf / Zed       | Deep collaborator inside IDE        |
 | Claude Code / Amp / OpenCode  | Terminal reasoning partner          |
 | Codex App / Jules             | Manager of async AI workers         |
-| Devin / Windsurf Cascade      | Supervisor of autonomous junior dev |
+| Windsurf Cascade / Devin      | Supervisor of autonomous junior dev |
 | Antigravity                   | Overseer of hybrid agent network    |
 
 ---
@@ -172,9 +172,9 @@ Copilot  Cline        Cursor     Claude Code   Codex App        Devin          A
 | Anthropic           | Terminal-native reasoning     | Claude Code / Terminal                     |
 | OpenAI              | Agent orchestration           | Codex App / Cloud                          |
 | Google              | Model + cloud infrastructure  | Jules (Cloud Agent) + Antigravity (Hybrid) |
-| Cognition           | Hybrid IDE + autonomy         | Windsurf (Fork + Autonomous) + Antigravity |
+| Cognition           | Hybrid IDE + autonomy         | Windsurf (Fork + Autonomous) + Devin       |
 
-> **The Cognition position:** Cognition owns both Windsurf and Antigravity — the only company spanning three architectural categories: Fork, Autonomous Agent, and Hybrid. Every other company is concentrated in one zone. That breadth is their strategic advantage.
+> **The Cognition position:** Cognition owns both Windsurf and Devin.
 
 > **The Google position:** Google spans two categories — Jules in the Cloud Agent model and Antigravity in the Hybrid Autonomous IDE model. Combined with their underlying model and infrastructure layer, they have a credible play across the full autonomous end of the spectrum.
 
@@ -186,7 +186,7 @@ Today's visible fight is **Cursor vs. GitHub**: who owns the developer workflow?
 
 > **But this framing may already be transitional.**
 
-If the Orchestrator Developer paradigm becomes dominant, neither the editor nor the repo UI matters much. Developers who delegate to agents don't live in Cursor or care about GitHub's PR interface — they care about agent execution environments and supervision surfaces. The fight shifts to who owns the orchestration layer, which points to **Cognition** (Windsurf Cascade + Antigravity) and **Google** (Jules + Antigravity) as the players best positioned for that world.
+If the Orchestrator Developer paradigm becomes dominant, neither the editor nor the repo UI matters much. Developers who delegate to agents don't live in Cursor or care about GitHub's PR interface — they care about agent execution environments and supervision surfaces. The fight shifts to who owns the orchestration layer, which points to **Cognition** (Windsurf Cascade + Devin) and **Google** (Antigravity + Jules) as the players best positioned for that world.
 
 ---
 
